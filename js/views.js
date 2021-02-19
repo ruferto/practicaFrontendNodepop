@@ -1,11 +1,15 @@
-import dataService from "./services/DataService.js";
+//import dataService from "./services/DataService.js";
 
-export const adView = (ad) => {
+function getTags (tagsArray){
   let tags = '';
-  ad.tags.forEach(tag => {
+  tagsArray.forEach(tag => {
     tags += `<a href="/?tags=${tag}">${tag}</a>&nbsp;`;
   });
+  return tags;
+}
 
+export const adView = (ad) => {
+  
   const adImage = ad.foto ? `<img class="img-ad" src="${ ad.foto }" width="180" alt=${ad.foto } /><br>` : '';
   return `
   <div class="ad-container">
@@ -15,7 +19,7 @@ export const adView = (ad) => {
     ${adImage}
   </div>
   <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span>
-  <span class="tags">Etiquetas: &nbsp;${ tags }
+  <span class="tags">Etiquetas: &nbsp;${ getTags(ad.tags) }
   </span>
 </div>
 `;
@@ -74,14 +78,15 @@ export const detailView = (ad, username) => {
   ${ad.venta ? 'Se vende' : 'Se compra'}<br>
   <span style="font-size: 1.5rem;"><b>${ad.nombre}</b></span><br>
   <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span><br>
-  ${ad.tags}<br>
+  Etiquetas: ${getTags(ad.tags)}<br>
   Subido por:<br>
   ${ username }
   </div>
   <div class="detail-photo">
   <img src="${ad.foto}">
   </div>
-  </div>`;
+  </div>
+  <button style="float:right;margin: 50px;" class="delete-button hidden">Eliminar</button>`;
 };
 
 export const paginationView = (queries) => {
