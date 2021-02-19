@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/register-login.css">
+
+    <title>Registro</title>
+</head>
+<body>
+    <div class="global-errors hidden"></div>
+
+    <div class="lds-ring hidden"><div></div><div></div><div></div><div></div></div>
+
+    <div class="title-container">
+        <h1><a class="title" href="/"><b>Nodepop</a></b></h1>
+        <div class="subtitle-container">
+          <div class="subtitle">Compraventa a go-go</div>
+        </div>
+    </div>
+    <div class="login-contenedor">
+        <form class="form-login" action="./index.html" method="GET">
+            <input class="form-login-email" name="login-email" id="login-email" type="email" placeholder="email" required>
+            <input class="form-login-password"name="login-password" id="login-password" type="password" placeholder="Contraseña" required>
+            <input class="form-login-password"name="login-password2" id="login-password2" type="password" placeholder="Confirma la contraseña" required>
+            <button type="submit" class="login-button" action="./index.html">Registro</button>
+            
+        </form>
+        <a class="login-link" href="/login.html">¿Ya estás registrado? Haz login</a>
+    </div>
+    <script type="module" src="js/register.js"></script>
+</body>
+</html>

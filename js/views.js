@@ -1,3 +1,5 @@
+// import dataService from "./services/DataService.js";
+
 export const adView = (ad) => {
   let tags = '';
   ad.tags.forEach(tag => {

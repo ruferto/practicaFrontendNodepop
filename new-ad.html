@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear anuncio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
+</head>
+<body>
+    <div class="global-errors hidden"></div>
+
+    <div class="lds-ring hidden"><div></div><div></div><div></div><div></div></div>
+
+    <div class="title-container">
+        <h1><a class="title" href="/"><b>Nodepop</a></b></h1>
+        <div class="subtitle-container">
+          <div class="subtitle">Compraventa a go-go</div>
+        </div>
+    </div>
+    <div class="new-ad-container">
+        <form action="" method="POST">
+
+            <div class="first"><label for="nombre"><br>Nombre</label></div>
+            <input type="text" name="nombre" class="ad-name" id="nombre" placeholder="Artículo" required>
+            <label for="precio">Precio</label>
+
+            <input type="number" step="0.05" min="0" name="precio" id="precio" class="ad-price" placeholder="0,00" required>
+            <select class="ad-sale select-css" name="venta" id="venta">
+                <option value="true" selected>Vender</option>
+                <option value="false">Comprar</option>
+            </select>
+
+            <input type="hidden" name="foto" id="foto" class="ad-photo" value="none.png">
+            <label for="tags">Tags</label>
+            <input type="text" class="ad-tags" name="tags" id="tags" placeholder="Separados por comas" required>
+            <input type="hidden" value="form" name="form" id="form">
+            <br>
+            <button type="submit" class="buttonAdd">Publicar</button>
+        </form>
+        
+    </div>
+    <script type="module" src="js/new-ad.js"></script>
+</body>
+</html>
