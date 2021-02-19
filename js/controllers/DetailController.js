@@ -13,8 +13,9 @@ export default class DetailController extends BaseController {
             this.pubSub.publish(this.events.START_LOADING, {});
             const adId = dataService.getStringQueries().id;
             const ad = await dataService.getAd(adId);
+            const username = await dataService.getUsername(ad[0].userId)
             const article = document.createElement('article');
-            article.innerHTML = ad.length>0 ? detailView(ad[0]) : "El artículo no existe";  
+            article.innerHTML = ad.length>0 ? detailView(ad[0], username) : "El artículo no existe";  
             this.element.appendChild(article);
         }catch(error){
             this.pubSub.publish(this.events.ERROR, error);

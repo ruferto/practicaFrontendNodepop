@@ -56,23 +56,18 @@ export default {
         }
     },
 
-    // getNumAds: async() => {
-    //     const response = await fetch(baseUrl);
-    //     if (response.ok) {
-    //         let data = response.json();
-    //         console.log(data.length)
-    //         return await data.length;
-    //     } else {
-    //         throw new Error(`HTTP Error: ${response.status}`)
-    //     }
-    // }
-
-    post: async function(url, postData) {
+    post: async function(url, postData, json=true) {
         const config = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(postData)  // convierte el objeto de usuarios en un JSON
+            headers: {},
+            body: null
         };
+        if(json){
+            config.headers['Content-Type'] = 'application/json';
+            config.body = JSON.stringify(postData);
+        } else {
+            config.body = postData;
+        }
         const token = await this.getToken();
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
@@ -111,19 +106,42 @@ export default {
     },
 
     isUserLogged: async function() {
-        const token = await this.getToken();
-        if(token !== null) console.log('logged')
+        const token = await this.getToken();    
         return token !== null;  // esto devuelve true o false
     },
 
     saveAd: async function(ad) {
         const url = `${BASE_URL}/api/anuncios`;
+
+        if (ad.foto) {
+            const imageURL = await this.uploadImage(ad.foto);
+            ad.foto = imageURL;
+        }
+        
         return await this.post(url, ad);
     },
 
-    getUserDetails: function() {
-        const userDetails = this.parseJwt(localStorage.getItem(TOKEN_KEY));
+    uploadImage: async function(image) {
+        const form = new FormData();
+        form.append('file', image);
+        const url = `${BASE_URL}/upload`;
+        const response = await this.post(url, form, false);
+        return response.path || null;
+    },
+
+    getUserDetails: async function() {
+        const userDetails = await this.parseJwt(localStorage.getItem(TOKEN_KEY));
         return userDetails;
+    },
+
+    getUsername: async function(id) {
+        const response = await fetch(`${BASE_URL}/api/users/?id=${id}`);
+        if (response.ok) {
+            let data = await response.json();
+            return data[0].username;
+        } else {
+            throw new Error(`HTTP Error: ${response.status}`)
+        }
     },
 
     parseJwt: function (token) {

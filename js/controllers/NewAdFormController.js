@@ -49,9 +49,13 @@ export default class NewAdFormController extends BaseController {
                 nombre: this.element.querySelector('.ad-name').value,
                 precio: parseFloat(this.element.querySelector('.ad-price').value),
                 venta: this.element.querySelector('.ad-sale').value == 'true',
-                foto: this.element.querySelector('.ad-photo').value,
+                // foto: this.element.querySelector('.ad-photo').value,
+                foto: null,
                 tags: adTags
             };
+            if(this.element.querySelector('.ad-photo').files.length > 0){
+                ad.foto = this.element.querySelector('.ad-photo').files[0];
+            }
             this.publish(this.events.START_LOADING);
             try {
                 await dataService.saveAd(ad);

@@ -1,4 +1,4 @@
-// import dataService from "./services/DataService.js";
+import dataService from "./services/DataService.js";
 
 export const adView = (ad) => {
   let tags = '';
@@ -6,12 +6,13 @@ export const adView = (ad) => {
     tags += `<a href="/?tags=${tag}">${tag}</a>&nbsp;`;
   });
 
+  const adImage = ad.foto ? `<img class="img-ad" src="${ ad.foto }" width="180" alt=${ad.foto } /><br>` : '';
   return `
   <div class="ad-container">
   ${ (ad.venta) ? 'Se vende' : 'Se compra' }:<br>
   <span class="ad-name"><b>${ ad.nombre }</b></span><br>
   <div class="img-container">
-    <img class="img-ad" src="./public/images/${ ad.foto }" width="180" alt=${ad.foto } /><br>
+    ${adImage}
   </div>
   <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span>
   <span class="tags">Etiquetas: &nbsp;${ tags }
@@ -65,12 +66,22 @@ export const logInfoView = (user) => {
   ${user}&nbsp;<a href=""><img class="logout-icon" src="./public/images/logout.png" width="15"/></a>`;
 }
 
-export const detailView = (ad) => {
+export const detailView = (ad, username) => {
+
   return `<div class="ad-detail">
-  <p>${ad.nombre}</p>
-  <p>${ad.precio}</p>
-  <p></p><br>
-  <img src="./public/images/${ad.foto}"></div>`;
+  <div class="detail-container">
+  <div class="detail-content">
+  ${ad.venta ? 'Se vende' : 'Se compra'}<br>
+  <span style="font-size: 1.5rem;"><b>${ad.nombre}</b></span><br>
+  <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span><br>
+  ${ad.tags}<br>
+  Subido por:<br>
+  ${ username }
+  </div>
+  <div class="detail-photo">
+  <img src="${ad.foto}">
+  </div>
+  </div>`;
 };
 
 export const paginationView = (queries) => {

@@ -1,0 +1,17 @@
+/* .ad-detail-container{
+    align-content: center;
+} */
+.detail-container{
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    /* background-color: white; */
+}
+
+.detail-content{
+    width: 40vw;
+}
+
+.detail-photo{
+    width: 40vw;
+}
