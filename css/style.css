@@ -158,6 +158,10 @@ a:visited{
     text-decoration: none;
     cursor: pointer;
 }
+
+.buttonAdd.hidden{
+    visibility: hidden;
+}
   
 .buttonAdd:hover, button:hover{
     
