@@ -36,7 +36,7 @@ a:hover{
 a:visited{
     color: #1c8d7e;
 }
-img{
+.img-ad{
     width:180px;
     object-fit:contain;
     
@@ -195,4 +195,9 @@ button{
     /* border-style: none; */
     padding-left: .8rem;
     padding-right: .8rem;
+}
+
+.logout-icon{
+    position: relative;
+    top:2px;
 }

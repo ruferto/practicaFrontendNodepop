@@ -11,7 +11,7 @@ export const adView = (ad) => {
   ${ (ad.venta) ? 'Se vende' : 'Se compra' }:<br>
   <span class="ad-name"><b>${ ad.nombre }</b></span><br>
   <div class="img-container">
-    <img src="./public/images/${ ad.foto }" width="180" alt=${ad.foto } /><br>
+    <img class="img-ad" src="./public/images/${ ad.foto }" width="180" alt=${ad.foto } /><br>
   </div>
   <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span>
   <span class="tags">Etiquetas: &nbsp;${ tags }
@@ -58,8 +58,14 @@ export const formView = (queries) => {
 </form>`;
 };
 
+export const logInfoView = (user) => {
+  return `<div style="font-size: 0.7rem;">
+  Conectado como
+  </div>
+  ${user}&nbsp;<a href=""><img class="logout-icon" src="./public/images/logout.png" width="15"/></a>`;
+}
+
 export const detailView = (ad) => {
-  console.log(ad.nombre)
   return `<div class="ad-detail">
   <p>${ad.nombre}</p>
   <p>${ad.precio}</p>

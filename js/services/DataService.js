@@ -47,7 +47,7 @@ export default {
     },
 
     getAd: async (id) => {
-        const response = await fetch(`${baseUrl}?id=${id}`);
+        const response = await fetch(`${BASE_URL}${database}?id=${id}`);
         if (response.ok) {
             let data = response.json();
             return data;
@@ -98,6 +98,10 @@ export default {
         return await this.post(url, user);
     },
 
+    logout: async function() {
+        localStorage.removeItem(TOKEN_KEY);
+    },
+
     saveToken: async function(token) {
         localStorage.setItem(TOKEN_KEY, token);
     },
@@ -108,6 +112,7 @@ export default {
 
     isUserLogged: async function() {
         const token = await this.getToken();
+        if(token !== null) console.log('logged')
         return token !== null;  // esto devuelve true o false
     },
 
