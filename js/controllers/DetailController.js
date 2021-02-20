@@ -17,7 +17,7 @@ export default class DetailController extends BaseController {
 
             if(ad.length == 0){
                 const article = document.createElement('article');
-                article.innerHTML =  "El artículo no existe";  
+                article.innerHTML =  `<div class="message">El artículo no existe 🤷‍♂️</div>`;  
                 this.element.appendChild(article);
                 
             }else{

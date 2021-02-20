@@ -12,7 +12,7 @@ export default class AdsListController extends BaseController {
 
         if(ads.length==0){
             const article = document.createElement('article');
-            article.innerHTML = '<div style="font-size:1.4rem;padding-bottom:3.6rem;">No hay resultados</div>';
+            article.innerHTML = '<div class="message">No hay resultados</div>';
             this.element.appendChild(article);
         }else{
 

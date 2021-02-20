@@ -205,3 +205,10 @@ button{
     position: relative;
     top:2px;
 }
+
+.message{
+    font-family: SanchezFont;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom:3.6rem;
+}
