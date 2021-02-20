@@ -205,7 +205,3 @@ button{
     position: relative;
     top:2px;
 }
-
-.delete-button.hidden{
-    visibility: hidden;
-}

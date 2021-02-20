@@ -10,7 +10,7 @@ function getTags (tagsArray){
 
 export const adView = (ad) => {
   
-  const adImage = ad.foto ? `<img class="img-ad" src="${ ad.foto }" width="180" alt=${ad.foto } /><br>` : '';
+  const adImage = `<img class="img-ad" src="${ ad.foto || 'http://127.0.0.1:8000//none.png'}" width="180" alt=${ad.foto } /><br>`;
   return `
   <div class="ad-container">
   ${ (ad.venta) ? 'Se vende' : 'Se compra' }:<br>
@@ -79,14 +79,16 @@ export const detailView = (ad, username) => {
   <span style="font-size: 1.5rem;"><b>${ad.nombre}</b></span><br>
   <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span><br>
   Etiquetas: ${getTags(ad.tags)}<br>
-  Subido por:<br>
+  Subido por 
   ${ username }
   </div>
   <div class="detail-photo">
-  <img src="${ad.foto}">
+  <img src="${ad.foto || 'http://127.0.0.1:8000//none.png'}">
   </div>
-  </div>
-  <button style="float:right;margin: 50px;" class="delete-button hidden">Eliminar</button>`;
+  <div><button style="float:right;margin: 50px;" class="edit-button hidden">Editar</button></div>
+  <div><button style="float:right;margin: 50px;" class="delete-button hidden">Eliminar</button></div>
+  </div>`;
+  
 };
 
 export const paginationView = (queries) => {

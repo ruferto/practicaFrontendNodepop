@@ -12,15 +12,19 @@
     width: 40vw;
 }
 
-.detail-photo{
-    width: 40vw;
-}
+/* .detail-photo{
+    border-radius: 15px;
+} */
 
-.delete-button{
+.delete-button {
     color: white;
-    background-color: lightcoral;
-    border-color: red;
+    background-color: rgb(233, 73, 73);
+    border-color: white;
 }
 .delete-button:hover{
     background-color: red;;
+}
+
+.delete-button.hidden, .edit-button.hidden{
+    visibility: hidden;
 }

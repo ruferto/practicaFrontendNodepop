@@ -130,8 +130,12 @@ export default {
     },
 
     getUserDetails: async function() {
-        const userDetails = await this.parseJwt(localStorage.getItem(TOKEN_KEY));
-        return userDetails;
+        if(await this.isUserLogged()){
+            const userDetails = await this.parseJwt(localStorage.getItem(TOKEN_KEY));
+            return userDetails;
+        }else{
+            return null;
+        }
     },
 
     getUsername: async function(id) {
