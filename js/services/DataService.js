@@ -9,9 +9,10 @@ const tags = params.get("tags");
 const adId = params.get("id");
 const page = params.get("page") || 1;
 const limit = params.get("limit") || 10;
+const sort = params.get("sort")
 
 
-const queryString = `${ (adId ? `id=${adId}`: ``)}${ (nombre ? `nombre_like=${nombre}`: ``)}${ (precio ? `&precio=${precio}`: ``)}${ (venta ? `&venta=${venta}`: ``)}${ (tags ? `&tags_like=${tags}`: ``)}&_page=${page}&_limit=${limit}`;
+const queryString = `${ (adId ? `id=${adId}`: ``)}${ (nombre ? `nombre_like=${nombre}`: ``)}${ (precio ? `&precio=${precio}`: ``)}${ (venta ? `&venta=${venta}`: ``)}${ (tags ? `&tags_like=${tags}`: ``)}&_page=${page}&_limit=${limit}&_sort=${sort}`;
 
 
 //const url = 'https://raw.githubusercontent.com/usuario616/anuncios/main/anuncios.json';
@@ -47,7 +48,7 @@ export default {
     },
 
     getAd: async (id) => {
-        const response = await fetch(`${BASE_URL}${database}?id=${id}`);
+        const response = await fetch(`${BASE_URL}${database}/${id}`);
         if (response.ok) {
             let data = response.json();
             return data;
@@ -57,8 +58,24 @@ export default {
     },
 
     post: async function(url, postData, json=true) {
+        return await this.request('POST', url, postData, json);
+    },
+
+    delete: async function(url) {
+        return await this.request('DELETE', url, {});
+    },
+
+    edit: async function(url, postdata, json=true) {
+        return await this.request('PUT', url, postdata, json);
+    },
+
+    put: async function(url, putData, json=true) {
+        return await this.request('PUT', url, putData, json);
+    },
+
+    request: async function(method, url, postData, json=true) {
         const config = {
-            method: 'POST',
+            method: method,
             headers: {},
             body: null
         };
@@ -130,10 +147,12 @@ export default {
     },
 
     getUserDetails: async function() {
-        if(await this.isUserLogged()){
-            const userDetails = await this.parseJwt(localStorage.getItem(TOKEN_KEY));
-            return userDetails;
-        }else{
+        try{
+            const payloadBase64 = localStorage.getItem(TOKEN_KEY).split('.')[1];
+            var jsonPayload = atob(payloadBase64);
+            const {username, userId} = JSON.parse(jsonPayload);
+            return {username, userId};
+        }catch(error){
             return null;
         }
     },
@@ -144,17 +163,17 @@ export default {
             let data = await response.json();
             return data[0].username;
         } else {
-            throw new Error(`HTTP Error: ${response.status}`)
+            throw new Error(`HTTP Error: ${response.status}`);
         }
     },
 
-    parseJwt: function (token) {
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-    
-        return JSON.parse(jsonPayload);
+    deleteAd: async function(ad) {
+        const url = `${BASE_URL}/api/anuncios/${ad.id}`;
+        return await this.delete(url);
+    },
+
+    editAd: async function(ad) {
+        const url = `${BASE_URL}/api/anuncios/${ad.id}`;
+        return await this.edit(url, ad);
     }
 };

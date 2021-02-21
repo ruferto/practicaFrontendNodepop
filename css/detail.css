@@ -1,30 +1,48 @@
 /* .ad-detail-container{
     align-content: center;
 } */
+html{
+    background-color: white;
+}
 .detail-container{
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
     padding: 50px;
-    /* background-color: white; */
+    background-color: white;
 }
 
 .detail-content{
-    width: 40vw;
+    width: 50vw;
 }
 
-/* .detail-photo{
+.name-label{
+    font-size: 1.5rem;
+}
+
+/* .detail-photo img{
     border-radius: 15px;
 } */
 
-.delete-button {
-    color: white;
-    background-color: rgb(233, 73, 73);
-    border-color: white;
+.edit-button, .delete-button {
+    margin-top: 1rem;
 }
-.delete-button:hover{
+
+.delete-button {
+    color: red;
+    background-color: white;
+    border-color: rgb(233, 73, 73,.9);
+}
+.delete-button:hover {
     background-color: red;;
 }
 
 .delete-button.hidden, .edit-button.hidden{
     visibility: hidden;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
