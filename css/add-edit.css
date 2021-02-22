@@ -1,0 +1,22 @@
+/* .ad-detail-container{
+    align-content: center;
+} */
+html{
+    background-color: white;
+}
+
+.add-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    width: 90vw;
+}
+
+label{
+    font-size: 1.2rem;
+}
+
+input{
+    border-color: 25px;
+    font-size: 1.5rem;
+}

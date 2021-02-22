@@ -1,31 +1,21 @@
 const BASE_URL=`http://127.0.0.1:8000`;
 const TOKEN_KEY = 'token';
 
-const params = new URLSearchParams(document.location.search.substring(1));
-const nombre = params.get("nombre");
-const precio = params.get("precio");
-const venta = params.get("venta");
-const tags = params.get("tags");
-const adId = params.get("id");
-const page = params.get("page") || 1;
-const limit = params.get("limit") || 10;
-const sort = params.get("sort")
-
-
-const queryString = `${ (adId ? `id=${adId}`: ``)}${ (nombre ? `nombre_like=${nombre}`: ``)}${ (precio ? `&precio=${precio}`: ``)}${ (venta ? `&venta=${venta}`: ``)}${ (tags ? `&tags_like=${tags}`: ``)}&_page=${page}&_limit=${limit}&_sort=${sort}`;
-
-
 //const url = 'https://raw.githubusercontent.com/usuario616/anuncios/main/anuncios.json';
-const database = `/api/anuncios/`
-const url = `${BASE_URL}${database}?${ queryString }`;
-
-// if(adId){
-//     url = `http://localhost:8000/api/anuncios/${ adId }`;
-// }
 
 export default {
 
     getStringQueries: () => {
+        const params = new URLSearchParams(document.location.search.substring(1));
+        const nombre = params.get("nombre");
+        const precio = params.get("precio");
+        const venta = params.get("venta");
+        const tags = params.get("tags");
+        const adId = params.get("id");
+        const page = params.get("page") || 1;
+        const limit = params.get("limit") || 10;
+        const sort = params.get("sort");
+        const order = params.get("order");
         return {
             id: adId,
             nombre,
@@ -33,12 +23,16 @@ export default {
             venta,
             tags,
             page,
-            limit
+            limit,
+            sort,
+            order
         }
     },
 
-    getAds: async () => {
-        const response = await fetch(url);
+    getAds: async function() {
+        const queries = this.getStringQueries();
+        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.precio ? `&precio=${queries.precio}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}&_page=${queries.page}&_limit=${queries.limit}&_sort=${queries.sort ? queries.sort : 'id'}&_order=${queries.order ? queries.order : 'desc'}`;
+        const response = await fetch(`${BASE_URL}/api/anuncios/?${queryString}`);
         if (response.ok) {
             let data = response.json();
             return data;
@@ -48,7 +42,7 @@ export default {
     },
 
     getAd: async (id) => {
-        const response = await fetch(`${BASE_URL}${database}/${id}`);
+        const response = await fetch(`${BASE_URL}/api/anuncios/${id}`);
         if (response.ok) {
             let data = response.json();
             return data;

@@ -21,7 +21,7 @@ export default class EditAdFormController extends BaseController {
             const ad = await dataService.getAd(id);
             const isAuthor = (userId == ad.userId);
 
-            const innerHTMLEdit = isAuthor ?  editFormView(ad) : '<div class="message">No tiene permiso para editar este anuncio</div>';
+            const innerHTMLEdit = isAuthor ?  editFormView(ad) : '<div class="message"><br>No tiene permiso para editar este anuncio<br><br><a href="/">Volver</a></div>';
             const article = document.createElement('article');
 
             article.innerHTML = innerHTMLEdit;

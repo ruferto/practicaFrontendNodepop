@@ -39,7 +39,6 @@ export const errorView = (errorMessage) => {
 };
 
 export const formView = (queries) => {
-  console.log(queries)
   const { nombre, precio, venta, tags, page, limit } = queries;
   return `<form class="search-form">
   <img src="/public/images/lupa-icon.png" width="15px" />
@@ -85,7 +84,7 @@ export const detailView = (ad, username) => {
   <div><button class="delete-button hidden">Eliminar</button></div>
   </div>
   </div>
-  <div class="detail-photo">
+  <div class="detail-photo" style="position: relative;top: 0;">
   <img src="${ad.foto || 'http://127.0.0.1:8000//none.png'}">
   </div>
   
