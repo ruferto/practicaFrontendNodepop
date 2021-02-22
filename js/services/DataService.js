@@ -29,7 +29,7 @@ export default {
         }
     },
 
-    getAds: async function() {
+    getAds: async function(total=true) {
         const queries = this.getStringQueries();
         const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.precio ? `&precio=${queries.precio}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}&_page=${queries.page}&_limit=${queries.limit}&_sort=${queries.sort ? queries.sort : 'id'}&_order=${queries.order ? queries.order : 'desc'}`;
         const response = await fetch(`${BASE_URL}/api/anuncios/?${queryString}`);
@@ -41,13 +41,25 @@ export default {
         }
     },
 
+    getTotalPages: async function() {
+        const queries = this.getStringQueries();
+        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.precio ? `&precio=${queries.precio}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}`;
+        const response = await fetch(`${BASE_URL}/api/anuncios/?${queryString}`);
+        if (response.ok) {
+            let data = await response.json();
+            return data.length;
+        } else {
+            throw new Error(`HTTP Error: ${response.status}`);
+        }
+    },
+
     getAd: async (id) => {
         const response = await fetch(`${BASE_URL}/api/anuncios/${id}`);
         if (response.ok) {
             let data = response.json();
             return data;
         } else {
-            throw new Error(`HTTP Error: ${response.status}`)
+            throw new Error(`HTTP Error: ${response.status}`);
         }
     },
 

@@ -38,7 +38,7 @@ export const errorView = (errorMessage) => {
   </article>`
 };
 
-export const formView = (queries) => {
+export const formView = (queries, total) => {
   const { nombre, precio, venta, tags, page, limit } = queries;
   return `<form class="search-form">
   <img src="/public/images/lupa-icon.png" width="15px" />
@@ -54,10 +54,10 @@ export const formView = (queries) => {
   <label for="tag">Etiqueta: </label>
   <input id="tags" name="tags" value="${tags ? tags : ''}">
   <label for="page">Página: </label>
-  <input type="number" min="1" action="" id="page" name="page" value="${page}" style="width: 50px;">
+  <input class="page-input" type="number" min="1" max="${total}" action="" id="page" name="page" value="${page}" style="width: 50px;">
   <label for="limit">Límite: </label>
-  <input type="number" min="0" action="" id="limit" name="limit" value="${limit}" style="width: 50px;">
-  <button type="submit">Buscar</button>
+  <input class="limit-input" type="number" min="0" action="" id="limit" name="limit" value="${limit}" style="width: 50px;">
+  <button class="search-button" type="submit">Buscar</button>
 </form>`;
 };
 

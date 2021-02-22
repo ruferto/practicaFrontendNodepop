@@ -9,7 +9,6 @@ import PaginationController from './PaginationController.js';
 export default class AdsListController extends BaseController {
 
     render(ads) {
-
         if(ads.length==0){
             const article = document.createElement('article');
             article.innerHTML = '<div class="message">No hay resultados</div>';
@@ -43,9 +42,7 @@ export default class AdsListController extends BaseController {
             console.error(error);
             this.pubSub.publish(this.events.ERROR, error);
         } finally {
-            // esto se ejecuta siempre, vaya bien o vaya mal
             this.pubSub.publish(this.events.FINISH_LOADING, {});
-            
         }
     }
 
