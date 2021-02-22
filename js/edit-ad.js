@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const errorsElement = document.querySelector('.global-errors');
     const errorController = new ErrorController(errorsElement);
 
-    const formElement = document.querySelector('.new-ad-container');
+    const formElement = document.querySelector('.edit-ad-container');
     const formController = new EditAdFormController(formElement);
     formController.render();
 });

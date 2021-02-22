@@ -104,23 +104,24 @@ export const paginationView = (queries) => {
 };
 
 export const editFormView = (ad) => {
-  return `<form action="" method="PUT">
+  return `<form class="form-edit" action="" method="PUT">
 
-  <div class="first"><label for="nombre"><br>Nombre</label></div>
-  <input type="text" value="${ad.nombre}" name="nombre" class="ad-name" id="nombre" placeholder="Artículo" required>
-  <label for="precio">Precio</label>
+  <div><label for="nombre"><br>Nombre</label><br>
+  <input type="text" value="${ad.nombre}" name="nombre" class="ad-name" id="nombre" placeholder="Artículo" required></div>
+  <div><label for="precio">Precio</label><br>
 
   <input type="number" value="${ad.precio}" step="0.05" min="0" name="precio" id="precio" class="ad-price" placeholder="0,00" required>
   <select class="ad-sale select-css" name="venta" id="venta">
       <option value="true" ${ad.venta ? 'selected' : ''}>Vender</option>
       <option value="false" ${!ad.venta ? 'selected' : ''}>Comprar</option>
-  </select>
-
-  <input type="text" value="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" name="ad-foto" id="ad-foto" class="ad-photo">
+  </select></div>
+  <img class="image-selected" src="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" width="300"/>
+  <!-- <input type="file" style="font-size: 1rem; width: 310px;" value="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" class="ad-photo" name="foto" id="foto" accept="image/*"> -->
+  <input type="hidden" value="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" name="ad-foto" id="ad-foto" class="ad-photo">
   <input type="hidden" value="${ad.id}" name="id" id="id" class="ad-id">
   <input type="hidden" value="${ad.userId}" name="userId" id="userId" class="ad-userId">
-  <label for="tags">Tags</label>
-  <input type="text" value="${ad.tags}" class="ad-tags" name="tags" id="tags" placeholder="Separados por comas" required>
+  <div><label for="tags">Tags</label><br>
+  <input type="text" value="${ad.tags}" class="ad-tags" name="tags" id="tags" placeholder="Separados por comas" required></div>
   <!-- <input type="file" class="ad-photo" name="foto" id="foto" accept="image/*">  -->
   <br>
   <button type="submit" class="buttonAdd">Editar</button>

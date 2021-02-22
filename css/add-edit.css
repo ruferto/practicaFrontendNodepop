@@ -1,8 +1,20 @@
-/* .ad-detail-container{
-    align-content: center;
-} */
+
 html{
     background-color: white;
+}
+
+.form-edit, .form-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    width:100%;
+}
+
+button {
+    margin-bottom: 2rem;
 }
 
 .add-form{
@@ -12,11 +24,35 @@ html{
     width: 90vw;
 }
 
+.ad-price {
+    width: 150px;
+}
 label{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
-input{
-    border-color: 25px;
+input, .ad-name, select {
+    border-radius: 25px;
+    padding: 0 20px 0 20px;
     font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+}
+
+.ad-name, .ad-tags {
+    width: 305px;
+}
+
+.ad-photo {
+    font-size: 1rem;
+    width: 310px;
+}
+
+.image-selected {
+    margin-bottom: 1rem;
+
+}
+
+select {
+    width: 150px;
 }
