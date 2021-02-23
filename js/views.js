@@ -56,6 +56,7 @@ export const formView = (queries, total) => {
   <input type="hidden" class="page-input" id="page" name="page">
   <label for="limit">Por página: </label>
   <select class="limit-input" id="limit" name="limit" style="width: 50px;">
+  <option value=1 ${ limit == 1 ? 'selected' : '' }>1</option>
     <option value=5 ${ limit == 5 ? 'selected' : '' }>5</option>
     <option value=10 ${ limit == 10 ? 'selected' : '' }>10</option>
     <option value=20 ${ limit == 20 ? 'selected' : '' }>20</option>
@@ -63,8 +64,28 @@ export const formView = (queries, total) => {
   </select>
   <button class="search-button" type="submit">Buscar</button>
 </form><br><div style="text-align: center;">`;
-  for(let i=0;i<total;i++){
-    htmlForm += `<button class="pag-button${i+1 == page ? ' current' : ''}" value=${i+1}>${i+1}</button>`
+  
+  if(total>20){
+    htmlForm += `<br><button class="pag-button${page ==1 ? ' current' : ''}" value=1>1</button>`;
+    for(let i=1;i<total-1;i++){
+      // if((i+1) > page-3 && (i+1) < page+3)
+      if((i+1) > page-3 && (i-3) < page-1)
+        htmlForm += `<button class="pag-button${i+1 == page ? ' current' : ''}" value=${i+1}>${i+1}</button>`
+      else{
+        htmlForm += '...';
+         if((i+1) < page-3){
+           i=page-4;
+         }else
+         if((i-3) > page-2){
+          i=total-2;
+        }
+      }
+    }
+    htmlForm += `<button class="pag-button${page == total ? ' current' : ''}" value=${total}>${total}</button>`;
+  }else{
+    for(let i=0;i<total;i++){
+      htmlForm += `<button class="pag-button${i+1 == page ? ' current' : ''}" value=${i+1}>${i+1}</button>`;
+    }
   }
   htmlForm += `</div>`;
   return htmlForm;

@@ -188,6 +188,8 @@ a:visited{
     font-size: 1.4rem;
     position: relative;
     top: 2px;
+    padding: 0px 6px 0px 6px;
+    border-radius: 25px;
 }
 
 .search-form-container{
@@ -221,6 +223,7 @@ button{
 }
 
 .message{
+    background-color: white;
     font-family: SanchezFont;
     font-size: 1.5rem;
     text-align: center;
