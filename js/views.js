@@ -40,7 +40,7 @@ export const errorView = (errorMessage) => {
 
 export const formView = (queries, total) => {
   const { nombre, precio, venta, tags, page, limit } = queries;
-  return `<form class="search-form">
+  let htmlForm =  `<form class="search-form">
   <img src="/public/images/lupa-icon.png" width="15px" />
   <label for="nombre">Nombre: </label>
   <input type="text" action="" id="nombre" name="nombre" value="${nombre ? nombre : ''}">
@@ -53,12 +53,21 @@ export const formView = (queries, total) => {
   </select>
   <label for="tag">Etiqueta: </label>
   <input id="tags" name="tags" value="${tags ? tags : ''}">
-  <label for="page">Página: </label>
-  <input class="page-input" type="number" min="1" max="${total}" action="" id="page" name="page" value="${page}" style="width: 50px;">
-  <label for="limit">Límite: </label>
-  <input class="limit-input" type="number" min="0" action="" id="limit" name="limit" value="${limit}" style="width: 50px;">
+  <input type="hidden" class="page-input" id="page" name="page">
+  <label for="limit">Por página: </label>
+  <select class="limit-input" id="limit" name="limit" style="width: 50px;">
+    <option value=5 ${ limit == 5 ? 'selected' : '' }>5</option>
+    <option value=10 ${ limit == 10 ? 'selected' : '' }>10</option>
+    <option value=20 ${ limit == 20 ? 'selected' : '' }>20</option>
+    <option value=50 ${ limit == 50 ? 'selected' : '' }>50</option>
+  </select>
   <button class="search-button" type="submit">Buscar</button>
-</form>`;
+</form><br><div style="text-align: center;">`;
+  for(let i=0;i<total;i++){
+    htmlForm += `<button class="pag-button${i+1 == page ? ' current' : ''}" value=${i+1}>${i+1}</button>`
+  }
+  htmlForm += `</div>`;
+  return htmlForm;
 };
 
 export const logInfoView = (user) => {

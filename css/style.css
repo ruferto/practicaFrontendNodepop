@@ -176,6 +176,20 @@ a:visited{
     transition: transform .1s ease-in-out;
 }
 
+.pag-button{
+    padding: 0 5px 0 5px;
+    margin-top: 1rem;
+    margin: 10px 3px 0 3px;
+}
+
+.pag-button.current {
+    /* color: white;
+    background-color: green; */
+    font-size: 1.4rem;
+    position: relative;
+    top: 2px;
+}
+
 .search-form-container{
     padding-left: 10px;
     padding-bottom: 20px;

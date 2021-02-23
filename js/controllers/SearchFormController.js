@@ -35,5 +35,12 @@ export default class SearchFormController extends BaseController {
         searchButton.addEventListener('click', (event) => {
             pageInput.value=1;
         });
+
+        const pagButtons = document.querySelectorAll('.pag-button');
+        pagButtons.forEach( button => {
+            button.addEventListener('click', (event) => {
+                pageInput.value=button.value;
+            })
+        })
     }
 }
