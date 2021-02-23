@@ -81,6 +81,7 @@ export const detailView = (ad, username) => {
 
   return `<div class="ad-detail">
   <div class="detail-container">
+  <div style="margin-right:4rem;"><a href="/"><img src="/public/images/back.png" width="35" /></a></div>
   <div class="detail-content">
   ${ad.venta ? 'Se vende' : 'Se compra'}<br>
   <span class="name-label"><b>${ad.nombre}</b></span><br>
@@ -133,6 +134,6 @@ export const editFormView = (ad) => {
   <input type="text" value="${ad.tags}" class="ad-tags" name="tags" id="tags" placeholder="Separados por comas" required></div>
   <!-- <input type="file" class="ad-photo" name="foto" id="foto" accept="image/*">  -->
   <br>
-  <button type="submit" class="buttonAdd">Editar</button>
+  <div><button action="/" style="margin-right: 2rem;" class="buttonAdd">Cancelar</button><button type="submit" class="buttonAdd">Editar</button></div>
 </form>`;
 };
