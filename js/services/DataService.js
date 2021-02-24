@@ -45,7 +45,7 @@ export default {
 
     getTotalPages: async function() {
         const queries = this.getStringQueries();
-        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.min ? `&min=${queries.min}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}`;
+        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.min ? `&precio_gte=${queries.min}`: ``)}${ (queries.max ? `&precio_lte=${queries.max}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}`;
         const response = await fetch(`${BASE_URL}/api/anuncios/?${queryString}`);
         if (response.ok) {
             let data = await response.json();
