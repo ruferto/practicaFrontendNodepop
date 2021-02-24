@@ -41,7 +41,7 @@ export default class DetailController extends BaseController {
                     const deleteConfirm = confirm('¿Estás seguro de querer eliminar este anuncio?\nEsta acción no se podrá deshacer.');
                     if(deleteConfirm){
                         await dataService.deleteAd(ad);
-                        window.location.href='/';
+                        window.location.href='/?mensaje=deleteOK';
                     }
                 })
                 deleteBtn.classList.remove('hidden');

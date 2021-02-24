@@ -230,3 +230,12 @@ button{
     text-align: center;
     padding-bottom:3.6rem;
 }
+
+.notification.is-success{
+    width: 50vw;
+    position: absolute;
+    top: 80px;
+    left: 25vw;
+    text-align: center;
+    font-size: 1.5rem;
+}

@@ -8,7 +8,6 @@ export default class EditAdFormController extends BaseController {
     constructor(element) {
         super(element);
         this.checkIfUserIsLogged();
-        //this.checkIfUserIsAuthor();
         this.attachEventListeners();
     }
 
@@ -51,22 +50,9 @@ export default class EditAdFormController extends BaseController {
     }
 
     async attachEventListeners() {
-        // // a medida que el usuario escribe, comprobamos si el formulario es válido para habiltiar o no el botón de enviar
-        // const textarea = this.element.querySelector('textarea');
-        // textarea.addEventListener('keyup', () => {
-        //     const button = this.element.querySelector('button');
-        //     if (this.element.checkValidity()) {
-        //         button.removeAttribute('disabled');
-        //     } else {
-        //         button.setAttribute('disabled', true);
-        //     }
-        // });
-
-        // controlamos cuando se envía el formulario
         
         this.element.addEventListener('submit', async event => {
-            console.log('dale')
-            event.preventDefault();  // cancelamos el envío del formulario (comportamiento por defecto)
+            event.preventDefault();
             let adTags = this.element.querySelector('.ad-tags').value;
             adTags=adTags.split(',');
             
@@ -89,11 +75,12 @@ export default class EditAdFormController extends BaseController {
             this.publish(this.events.START_LOADING);
             try {
                 await dataService.editAd(ad);
-                window.location.href = '/?mensaje=editOK'
+                window.location.href = '/?mensaje=editOK';
+                
             } catch (error) {
-                this.publish(this.events.ERROR, error)
+                this.publish(this.events.ERROR, error);
             } finally {
-                this.publish(this.events.FINISH_LOADING)
+                this.publish(this.events.FINISH_LOADING);
             }
         });
     }
