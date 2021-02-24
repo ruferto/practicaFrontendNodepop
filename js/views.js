@@ -39,13 +39,15 @@ export const errorView = (errorMessage) => {
 };
 
 export const formView = (queries, total) => {
-  const { nombre, precio, venta, tags, page, limit } = queries;
+  const { nombre, min, max, venta, tags, page, limit } = queries;
   let htmlForm =  `<form class="search-form">
   <img src="/public/images/lupa-icon.png" width="15px" />
   <label for="nombre">Nombre: </label>
   <input type="text" action="" id="nombre" name="nombre" value="${nombre ? nombre : ''}">
-  <label for="precio">Precio: </label>
-  <input type="number" style="width: 60px;" step="0.05" min="0" action="" id="precio" name="precio" value="${precio ? precio : ''}">
+  <label for="min">Mín: </label>
+  <input type="number" style="width: 60px;" step="0.05" min="0" action="" id="min" name="min" value="${min ? min : ''}">
+  <label for="max">Máx: </label>
+  <input type="number" style="width: 60px;" step="0.05" min="0" action="" id="max" name="max" value="${max ? max : ''}">
   <select id="venta" name="venta">
     <option value="">Todos</option>
     <option value="true" ${venta ? ( venta == 'true' ? 'selected' : '') : ''}>Venta</option>

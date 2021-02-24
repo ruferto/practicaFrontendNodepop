@@ -8,7 +8,8 @@ export default {
     getStringQueries: () => {
         const params = new URLSearchParams(document.location.search.substring(1));
         const nombre = params.get("nombre");
-        const precio = params.get("precio");
+        const min = params.get("min");
+        const max = params.get("max");
         const venta = params.get("venta");
         const tags = params.get("tags");
         const adId = params.get("id");
@@ -19,7 +20,8 @@ export default {
         return {
             id: adId,
             nombre,
-            precio,
+            min,
+            max,
             venta,
             tags,
             page,
@@ -31,7 +33,7 @@ export default {
 
     getAds: async function(total=true) {
         const queries = this.getStringQueries();
-        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.precio ? `&precio=${queries.precio}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}&_page=${queries.page}&_limit=${queries.limit}&_sort=${queries.sort ? queries.sort : 'id'}&_order=${queries.order ? queries.order : 'desc'}`;
+        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.min ? `&precio_gte=${queries.min}`: ``)}${ (queries.max ? `&precio_lte=${queries.max}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}&_page=${queries.page}&_limit=${queries.limit}&_sort=${queries.sort ? queries.sort : 'id'}&_order=${queries.order ? queries.order : 'desc'}`;
         const response = await fetch(`${BASE_URL}/api/anuncios/?${queryString}`);
         if (response.ok) {
             let data = response.json();
@@ -43,7 +45,7 @@ export default {
 
     getTotalPages: async function() {
         const queries = this.getStringQueries();
-        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.precio ? `&precio=${queries.precio}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}`;
+        const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.min ? `&min=${queries.min}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}`;
         const response = await fetch(`${BASE_URL}/api/anuncios/?${queryString}`);
         if (response.ok) {
             let data = await response.json();
