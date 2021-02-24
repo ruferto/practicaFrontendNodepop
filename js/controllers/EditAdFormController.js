@@ -30,8 +30,8 @@ export default class EditAdFormController extends BaseController {
 
             const backBtn = this.element.querySelector('.button-cancel');
             backBtn.addEventListener('click', (event) => {
-                //window.history.back();
-                console.log('patrás')
+                event.preventDefault();
+                window.history.back();
             });
 
         }catch(error){
@@ -65,6 +65,7 @@ export default class EditAdFormController extends BaseController {
         // controlamos cuando se envía el formulario
         
         this.element.addEventListener('submit', async event => {
+            console.log('dale')
             event.preventDefault();  // cancelamos el envío del formulario (comportamiento por defecto)
             let adTags = this.element.querySelector('.ad-tags').value;
             adTags=adTags.split(',');
