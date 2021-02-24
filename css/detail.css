@@ -25,7 +25,7 @@ html{
     object-fit:contain;
     border-radius: 15px;
     width: 50vw;
-    max-height: 90vh;
+    max-height: 70vh;
 }
 
 .edit-button, .delete-button {
@@ -49,4 +49,9 @@ html{
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.back-icon{
+    cursor: pointer;
+    margin-right:4rem;
 }

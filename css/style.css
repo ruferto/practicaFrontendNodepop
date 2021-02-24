@@ -38,6 +38,7 @@ a:visited{
 }
 .img-ad{
     width:180px;
+    height: 180px;
     object-fit:contain;
     
 }
@@ -46,7 +47,7 @@ a:visited{
     display: flex;
     justify-content: center;
     align-self: center;
-    height: 200px;
+    height: 180px;
     width: 180px;
 }
 
@@ -121,11 +122,11 @@ a:visited{
 .ad-name{
     font-size: 1.3rem;
     /* text-align: center; */
-    height: 2.2rem;
+    height: 3.5rem;
 }
   
 .price{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-align: right;
     width:100%;
     padding-right: 20px;

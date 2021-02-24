@@ -28,6 +28,12 @@ export default class EditAdFormController extends BaseController {
             this.element.appendChild(article);
             if(!isAuthor) throw new Error(`No tiene permiso para editar este anuncio`);
 
+            const backBtn = this.element.querySelector('.button-cancel');
+            backBtn.addEventListener('click', (event) => {
+                //window.history.back();
+                console.log('patrás')
+            });
+
         }catch(error){
             this.pubSub.publish(this.events.ERROR, error);
         }finally{

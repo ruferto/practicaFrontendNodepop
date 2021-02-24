@@ -23,6 +23,11 @@ export default class DetailController extends BaseController {
             article.innerHTML = detailView(ad, username);  
             this.element.appendChild(article);
 
+            const backBtn = this.element.querySelector('.back-icon');
+            backBtn.addEventListener('click', (event) => {
+                window.history.back();
+            })
+
             if(isAuthor){
 
                 const editBtn = this.element.querySelector('.edit-button');

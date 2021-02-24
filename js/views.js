@@ -10,17 +10,17 @@ function getTags (tagsArray){
 
 export const adView = (ad) => {
   
-  const adImage = `<img class="img-ad" src="${ ad.foto || 'http://127.0.0.1:8000//none.png'}" width="180" alt=${ad.foto } /><br>`;
+  const adImage = `<img class="img-ad" src="${ ad.foto || 'http://127.0.0.1:8000//none.png'}" width="180" alt=${ad.nombre} /><br>`;
   return `
   <div class="ad-container">
-  ${ (ad.venta) ? 'Se vende' : 'Se compra' }:<br>
-  <span class="ad-name"><b>${ ad.nombre }</b></span><br>
+  ${ (ad.venta) ? 'Se vende' : 'Se compra' }:
+  <div class="ad-name"><b>${ ad.nombre }</b></div>
   <div class="img-container">
     ${adImage}
   </div>
-  <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span>
-  <span class="tags">Etiquetas: &nbsp;${ getTags(ad.tags) }
-  </span>
+  <div class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</div>
+  <div class="tags">Etiquetas: &nbsp;${ getTags(ad.tags) }
+  </div>
 </div>
 `;
 };
@@ -102,7 +102,7 @@ export const detailView = (ad, username) => {
 
   return `<div class="ad-detail">
   <div class="detail-container">
-  <div style="margin-right:4rem;"><a href="/"><img src="/public/images/back.png" width="35" /></a></div>
+  <div class="back-icon"><img src="/public/images/back.png" width="35" /></div>
   <div class="detail-content">
   ${ad.venta ? 'Se vende' : 'Se compra'}<br>
   <span class="name-label"><b>${ad.nombre}</b></span><br>
@@ -155,6 +155,6 @@ export const editFormView = (ad) => {
   <input type="text" value="${ad.tags}" class="ad-tags" name="tags" id="tags" placeholder="Separados por comas" required></div>
   <!-- <input type="file" class="ad-photo" name="foto" id="foto" accept="image/*">  -->
   <br>
-  <div><button action="/" style="margin-right: 2rem;" class="buttonAdd">Cancelar</button><button type="submit" class="buttonAdd">Editar</button></div>
+  <div><button style="margin-right: 2rem;" class="button-cancel">Cancelar</button><button class="buttonAdd">Editar</button></div>
 </form>`;
 };
