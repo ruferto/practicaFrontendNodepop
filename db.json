@@ -1,0 +1,517 @@
+{
+  "anuncios": [
+    {
+      "id": 1,
+      "userId": 11,
+      "nombre": "Bicicleta",
+      "precio": 230.15,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//bici.jpg",
+      "tags": [
+        "lifestyle",
+        "deporte",
+        "transporte"
+      ],
+      "updatedAt": "2021-02-21T00:34:53.697Z"
+    },
+    {
+      "id": 2,
+      "userId": 11,
+      "nombre": "iPhone 3GS",
+      "precio": 50,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//iphone.png",
+      "tags": [
+        "lifestyle",
+        "movil"
+      ],
+      "updatedAt": "2021-02-21T00:34:53.697Z"
+    },
+    {
+      "id": 3,
+      "userId": 11,
+      "nombre": "iMac",
+      "precio": 1090,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//imac.png",
+      "tags": [
+        "lifestyle",
+        "trabajo"
+      ],
+      "updatedAt": "2021-02-21T00:58:36.657Z"
+    },
+    {
+      "id": 4,
+      "nombre": "Boxee Box",
+      "venta": false,
+      "precio": 50,
+      "foto": "http://127.0.0.1:8000//boxee.png",
+      "tags": [
+        "hogar",
+        "tv"
+      ],
+      "userId": 10
+    },
+    {
+      "id": 5,
+      "userId": 11,
+      "nombre": "Groo #25",
+      "precio": 14.5,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//groo.jpg",
+      "tags": [
+        "comic",
+        "coleccionismo"
+      ],
+      "updatedAt": "2021-02-24T09:05:35.973Z"
+    },
+    {
+      "id": 6,
+      "nombre": "Megadrive",
+      "venta": false,
+      "precio": 80,
+      "foto": "http://127.0.0.1:8000//megadrive.jpg",
+      "tags": [
+        "lifestyle",
+        "gaming",
+        "coleccionismo"
+      ],
+      "userId": 11
+    },
+    {
+      "id": 7,
+      "nombre": "Tesla",
+      "venta": true,
+      "precio": 46000,
+      "foto": "http://127.0.0.1:8000//tesla.png",
+      "tags": [
+        "lifestyle",
+        "motor"
+      ],
+      "userId": 11
+    },
+    {
+      "id": 8,
+      "tags": [
+        "lifestyle",
+        "hogar",
+        "decoracion"
+      ],
+      "nombre": "Estantería",
+      "precio": 18,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//estanteria.jpg",
+      "userId": 11
+    },
+    {
+      "id": 9,
+      "nombre": "Roomba",
+      "venta": false,
+      "precio": 200,
+      "foto": "http://127.0.0.1:8000//roomba.png",
+      "tags": [
+        "lifestyle",
+        "trabajo"
+      ],
+      "userId": 11
+    },
+    {
+      "id": 10,
+      "tags": [
+        "lifestyle",
+        "motor"
+      ],
+      "nombre": "Moto",
+      "precio": 1600,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//moto.jpg",
+      "userId": 11
+    },
+    {
+      "id": 11,
+      "userId": 11,
+      "nombre": "Opel Corsa",
+      "precio": 2000,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//opelcorsa.jpg",
+      "tags": [
+        "lifestyle",
+        "motor"
+      ],
+      "updatedAt": "2021-02-24T10:13:35.182Z"
+    },
+    {
+      "id": 12,
+      "tags": [
+        "trabajo",
+        "coleccionismo"
+      ],
+      "nombre": "Amstrad CPC 464",
+      "precio": 120,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//amstrad.png",
+      "userId": 11
+    },
+    {
+      "id": 13,
+      "tags": [
+        "trabajo",
+        "motor"
+      ],
+      "nombre": "Tractor",
+      "precio": 19000,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//tractor.jpg",
+      "userId": 11
+    },
+    {
+      "id": 14,
+      "userId": 11,
+      "nombre": "Lámpara",
+      "precio": 14.25,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//lampara.jpg",
+      "tags": [
+        "lifestyle",
+        "decoracion"
+      ],
+      "updatedAt": "2021-02-24T09:10:30.404Z"
+    },
+    {
+      "id": 15,
+      "tags": [
+        "lifestyle",
+        "movil",
+        "modular"
+      ],
+      "nombre": "Fairphone",
+      "precio": 299.95,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//fairphone.png",
+      "userId": 11
+    },
+    {
+      "id": 16,
+      "tags": [
+        "lifestyle",
+        "decoracion",
+        "trabajo"
+      ],
+      "nombre": "Bombilla",
+      "precio": 5.75,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//bombilla.jpg",
+      "userId": 11
+    },
+    {
+      "id": 17,
+      "tags": [
+        "lifestyle",
+        "tablet",
+        "trabajo"
+      ],
+      "nombre": "iPad Mini",
+      "precio": 199.95,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//ipadmini.png",
+      "userId": 11
+    },
+    {
+      "id": 18,
+      "userId": 11,
+      "nombre": "Saco de papas",
+      "precio": 5,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//sacopapas.jpg",
+      "tags": [
+        "alimentacion",
+        "cocina"
+      ],
+      "updatedAt": "2021-02-22T16:04:21.676Z"
+    },
+    {
+      "id": 19,
+      "tags": [
+        "modelismo",
+        "trekkie",
+        "star trek",
+        "decoracion"
+      ],
+      "nombre": "Maqueta Enterprise",
+      "precio": 50,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//enterprise.png",
+      "userId": 11
+    },
+    {
+      "id": 20,
+      "tags": [
+        "lifestyle",
+        "deporte"
+      ],
+      "nombre": "Patines",
+      "precio": 32,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//patines.png",
+      "userId": 11
+    },
+    {
+      "id": 21,
+      "userId": 10,
+      "nombre": "Sartén",
+      "precio": 6,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//sarten.png",
+      "tags": [
+        "cocina",
+        "hogar"
+      ],
+      "updatedAt": "2021-02-21T23:22:37.341Z"
+    },
+    {
+      "id": 23,
+      "userId": 11,
+      "nombre": "Spirou and Fantasio",
+      "precio": 15,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//file-1613838977895.jpeg",
+      "tags": [
+        "comic",
+        "tebeos",
+        "bd"
+      ],
+      "updatedAt": "2021-02-22T16:03:54.325Z"
+    },
+    {
+      "id": 24,
+      "userId": 11,
+      "nombre": "Cafetera",
+      "precio": 6.1,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//file-1613850314129.jpeg",
+      "tags": [
+        "cocina",
+        "hogar",
+        "lifestyle"
+      ],
+      "updatedAt": "2021-02-22T15:13:15.301Z"
+    },
+    {
+      "id": 29,
+      "userId": 11,
+      "nombre": "Perrete",
+      "precio": 120,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//file-1614008631131.jpg",
+      "tags": [
+        "nada",
+        "poco"
+      ],
+      "updatedAt": "2021-02-24T09:09:23.447Z"
+    },
+    {
+      "id": 30,
+      "userId": 10,
+      "nombre": "Póster Calvin & Hobbes",
+      "precio": 25,
+      "venta": true,
+      "foto": "http://127.0.0.1:8000//file-1614080559994.jpg",
+      "tags": [
+        "comic",
+        "hogar",
+        "decoracion"
+      ],
+      "updatedAt": "2021-02-24T09:04:26.357Z"
+    },
+    {
+      "id": 31,
+      "userId": 10,
+      "nombre": "Té",
+      "precio": 2.75,
+      "venta": false,
+      "foto": "http://127.0.0.1:8000//file-1614086751337.png",
+      "tags": [
+        "alimentacion",
+        "vida sana",
+        "lifestyle"
+      ],
+      "updatedAt": "2021-02-24T09:02:19.866Z"
+    }
+  ],
+  "messages": [
+    {
+      "message": "No One's Ever Really Gone",
+      "userId": 1,
+      "createdAt": "2021-02-01T19:25:36.038Z",
+      "id": 1
+    },
+    {
+      "message": "I am your father",
+      "userId": 2,
+      "createdAt": "2021-02-02T19:25:41.153Z",
+      "id": 2
+    },
+    {
+      "message": "Help me, Obi-Wan Kenobi. You’re my only hope.",
+      "userId": 3,
+      "createdAt": "2021-02-03T19:25:41.153Z",
+      "id": 3
+    },
+    {
+      "message": "WWWWWWWGGGGHHHRRRRW AAARARRRGWWWH",
+      "userId": 4,
+      "createdAt": "2021-02-04T19:25:41.153Z",
+      "id": 4
+    },
+    {
+      "message": "It's the ship that made the Kessel Run in less than twelve parsecs!",
+      "userId": 5,
+      "createdAt": "2021-02-05T19:25:41.153Z",
+      "id": 5
+    },
+    {
+      "message": "It's not wise to upset a Wookie",
+      "userId": 6,
+      "createdAt": "2021-02-06T19:25:41.153Z",
+      "id": 6
+    },
+    {
+      "message": "Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering.",
+      "userId": 7,
+      "createdAt": "2021-02-07T19:25:41.153Z",
+      "id": 7
+    },
+    {
+      "message": "Unlimited Power!",
+      "userId": 8,
+      "createdAt": "2021-02-08T19:25:41.153Z",
+      "id": 8
+    },
+    {
+      "message": "Strike Me Down In Anger And I'll Always Be With You.",
+      "userId": 1,
+      "createdAt": "2021-02-09T19:25:41.153Z",
+      "id": 9
+    },
+    {
+      "message": "Noooooooooooooooooooooooooooooo",
+      "userId": 2,
+      "createdAt": "2021-02-10T19:25:41.153Z",
+      "id": 10
+    },
+    {
+      "message": "Help me, Obi-Wan Kenobi. You’re my only hope.",
+      "userId": 3,
+      "createdAt": "2021-02-11T19:25:41.153Z",
+      "id": 11
+    },
+    {
+      "message": "WAGRRRRWWGAHHHHWWWRRGGAWWWWWWRR",
+      "userId": 4,
+      "createdAt": "2021-02-12T19:25:41.153Z",
+      "id": 12
+    },
+    {
+      "message": "I know",
+      "userId": 5,
+      "createdAt": "2021-02-13T19:25:41.153Z",
+      "id": 13
+    },
+    {
+      "message": "I Suggest A New Strategy, R2 - Let The Wookiee Win.",
+      "userId": 6,
+      "createdAt": "2021-02-14T19:25:41.153Z",
+      "id": 14
+    },
+    {
+      "message": "Do or do not. There is no try.",
+      "userId": 7,
+      "createdAt": "2021-02-15T19:25:41.153Z",
+      "id": 15
+    },
+    {
+      "message": "Execute Order Sixty-Six!",
+      "userId": 8,
+      "createdAt": "2021-02-16T19:25:41.153Z",
+      "id": 16
+    },
+    {
+      "message": "Buenas tardes.",
+      "userId": 1,
+      "updatedAt": "2021-02-17T15:48:55.662Z",
+      "id": 17
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "luke@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 2,
+      "username": "anakin@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 3,
+      "username": "leia@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 4,
+      "username": "chewe@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 5,
+      "username": "han@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 6,
+      "username": "c3po@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 7,
+      "username": "yoda@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 8,
+      "username": "papatine@starwars.com",
+      "password": "$2b$10$KxqTnqj.uqyuXCNzKnJBse2TK/5GyaZLluzR6AZETLcHN6D/uAarm"
+    },
+    {
+      "id": 9,
+      "username": "alberto@kasfactory.net",
+      "password": "$2b$10$GyarejZrcK4/A54R/cFRtextW/seSpVIkFYjO2ggMbPePQaWe9g1G"
+    },
+    {
+      "username": "dos@dos",
+      "password": "$2b$10$gJbHEg/58P8m3kTnEC3xzeNGGw2YlKJU3UQgot.Il0Ffw4RKx3hrK",
+      "id": 10
+    },
+    {
+      "username": "tres@tres",
+      "password": "$2b$10$O/qg2IbMA7CSsgejHu4/zurgMA/HoNsGbuUV3fdIZFKXyPnQvLJju",
+      "id": 11
+    },
+    {
+      "username": "4@4",
+      "password": "$2b$10$t0y4JO9xvSz5Zk3P.CKiw.TOefQR/Pvqc3d5XBYWV5FwySc4aAru.",
+      "id": 12
+    },
+    {
+      "username": "lola@yono.es",
+      "password": "$2b$10$ORF2F03sQGRfFKFMzDJG0uDEA1PBKVpVyx1aolvPuENeqlMnvavlu",
+      "id": 13
+    },
+    {
+      "username": "foo@foo",
+      "password": "$2b$10$9nmutTOH3UlrbtRDRSYVgeM2DfVNwqTaBmEYzFVz4zeJr4ZcKM./e",
+      "id": 14
+    }
+  ]
+}
