@@ -140,6 +140,8 @@ export default {
     saveAd: async function(ad) {
         const url = `${BASE_URL}/api/anuncios`;
 
+        ad.nombre = ad.nombre.replace(/(<([^>]+)>)/gi, "");
+        ad.tags = ad.tags.map( tag => tag.replace(/(<([^>]+)>)/gi, ""));
         if (ad.foto) {
             const imageURL = await this.uploadImage(ad.foto);
             ad.foto = imageURL;
@@ -183,6 +185,8 @@ export default {
     },
 
     editAd: async function(ad) {
+        ad.nombre = ad.nombre.replace(/(<([^>]+)>)/gi, "");
+        ad.tags = ad.tags.map( tag => tag.replace(/(<([^>]+)>)/gi, ""));
         if (ad.foto && (typeof ad.foto !== 'string')) {
             const imageURL = await this.uploadImage(ad.foto);
             ad.foto = imageURL;
