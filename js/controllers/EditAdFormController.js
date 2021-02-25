@@ -1,5 +1,5 @@
-import BaseController from "./BaseController.js";
-import dataService from "../services/DataService.js";
+import BaseController from './BaseController.js';
+import dataService from '../services/DataService.js';
 import { editFormView } from '../views.js';
 
 
@@ -43,7 +43,7 @@ export default class EditAdFormController extends BaseController {
                 const inputChangePhoto = this.element.querySelector('.change-image-input');
                 inputChangePhoto.innerHTML = '<input type="file" style="font-size: 1rem; width: 310px;" class="ad-new-photo" name="foto" id="foto" accept="image/*">';
                 changePhotoButton.parentNode.removeChild(changePhotoButton);               
-            })
+            });
 
         }catch(error){
             this.pubSub.publish(this.events.ERROR, error);

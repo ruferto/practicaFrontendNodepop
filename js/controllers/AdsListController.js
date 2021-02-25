@@ -1,10 +1,6 @@
 import BaseController from './BaseController.js';
 import dataService from '../services/DataService.js';
 import { adView } from '../views.js';
-import PaginationController from './PaginationController.js';
-// import pubSub from '../services/Pubsub.js';
-// import AdController from './AdController.js';
-// import LoaderController from './LoaderController.js'
 
 export default class AdsListController extends BaseController {
 
@@ -24,20 +20,17 @@ export default class AdsListController extends BaseController {
                 article.addEventListener('click', (event) => {
                     window.location.href = `detail.html?id=${ad.id}`;////////TODO
                 });
-                //const controller = new AdController(this.element);
             }
         }
     }
 
     async loadAds() {
         this.pubSub.publish(this.events.START_LOADING, {});
-        //let num=0;
         try {
-            // let params = new URLSearchParams(document.location.search.substring(1));
-            // let name = params.get("nombre");
+            
             const ads = await dataService.getAds();
-            //num = ads.length;
             this.render(ads);
+
         } catch (error) {
             console.error(error);
             this.pubSub.publish(this.events.ERROR, error);

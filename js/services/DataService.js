@@ -30,10 +30,10 @@ export default {
             sort,
             order,
             message
-        }
+        };
     },
 
-    getAds: async function(total=true) {
+    getAds: async function() {
         const queries = this.getStringQueries();
         const queryString = `${ (queries.id ? `id=${queries.id}`: ``)}${ (queries.nombre ? `nombre_like=${queries.nombre}`: ``)}${ (queries.min ? `&precio_gte=${queries.min}`: ``)}${ (queries.max ? `&precio_lte=${queries.max}`: ``)}${ (queries.venta ? `&venta=${queries.venta}`: ``)}${ (queries.tags ? `&tags_like=${queries.tags}`: ``)}&_page=${queries.page}&_limit=${queries.limit}&_sort=${queries.sort ? queries.sort : 'id'}&_order=${queries.order ? queries.order : 'desc'}`;
         const response = await fetch(`${BASE_URL}/api/anuncios/?${queryString}`);
@@ -41,7 +41,7 @@ export default {
             let data = response.json();
             return data;
         } else {
-            throw new Error(`HTTP Error: ${response.status}`)
+            throw new Error(`HTTP Error: ${response.status}`);
         }
     },
 
@@ -140,8 +140,8 @@ export default {
     saveAd: async function(ad) {
         const url = `${BASE_URL}/api/anuncios`;
 
-        ad.nombre = ad.nombre.replace(/(<([^>]+)>)/gi, "");
-        ad.tags = ad.tags.map( tag => tag.replace(/(<([^>]+)>)/gi, ""));
+        ad.nombre = ad.nombre.replace(/(<([^>]+)>)/gi,'');
+        ad.tags = ad.tags.map( tag => tag.replace(/(<([^>]+)>)/gi, ''));
         if (ad.foto) {
             const imageURL = await this.uploadImage(ad.foto);
             ad.foto = imageURL;
@@ -185,8 +185,8 @@ export default {
     },
 
     editAd: async function(ad) {
-        ad.nombre = ad.nombre.replace(/(<([^>]+)>)/gi, "");
-        ad.tags = ad.tags.map( tag => tag.replace(/(<([^>]+)>)/gi, ""));
+        ad.nombre = ad.nombre.replace(/(<([^>]+)>)/gi, '');
+        ad.tags = ad.tags.map( tag => tag.replace(/(<([^>]+)>)/gi, ''));
         if (ad.foto && (typeof ad.foto !== 'string')) {
             const imageURL = await this.uploadImage(ad.foto);
             ad.foto = imageURL;
@@ -202,10 +202,7 @@ export default {
             ad.tags.forEach( tag => {
                 if(!tagList.includes(tag))
                     tagList.push(tag);
-            })
-        })
-        tagList.forEach( tag => {
-            console.log(tag)
+            });
         });
         return tagList;
     }

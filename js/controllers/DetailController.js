@@ -26,14 +26,14 @@ export default class DetailController extends BaseController {
             const backBtn = this.element.querySelector('.back-icon');
             backBtn.addEventListener('click', (event) => {
                 window.history.back();
-            })
+            });
 
             if(isAuthor){
 
                 const editBtn = this.element.querySelector('.edit-button');
                 editBtn.addEventListener('click', (event) => {
                     window.location.href=`edit-ad.html?id=${ad.id}`;
-                })
+                });
                 editBtn.classList.remove('hidden');
                 
                 const deleteBtn = this.element.querySelector('.delete-button');
@@ -43,7 +43,7 @@ export default class DetailController extends BaseController {
                         await dataService.deleteAd(ad);
                         window.location.href='/?mensaje=deleteOK';
                     }
-                })
+                });
                 deleteBtn.classList.remove('hidden');
             }
             

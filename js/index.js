@@ -3,7 +3,7 @@ import LoaderController from './controllers/LoaderController.js';
 import ErrorController from './controllers/ErrorController.js';
 import SearchFormController from './controllers/SearchFormController.js';
 import SubtitleController from './controllers/SubtitleController.js';
-import dataService from './services/DataService.js'
+import dataService from './services/DataService.js';
 //import PaginationController from './controllers/PaginationController.js';
 
 window.addEventListener('DOMContentLoaded', async (event) => {
@@ -39,9 +39,9 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     } 
     const notificaction = document.querySelector('.notification');
     notificaction.innerText=message;
-    notificaction.classList.remove('is-hidden')
+    notificaction.classList.remove('is-hidden');
     setTimeout( () => {
       notificaction.classList.add('is-hidden');
-    }, 2000)
+    }, 2000);
   }
 });

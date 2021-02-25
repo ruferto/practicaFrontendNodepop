@@ -7,7 +7,7 @@ export default class ErrorController extends BaseController {
         super(element);
         this.pubSub.subscribe(this.events.ERROR, (error) => {
             this.showError(error);
-        })
+        });
     }
 
     showError(errorMessage) {
@@ -21,7 +21,7 @@ export default class ErrorController extends BaseController {
 
         const options = {once: true};
         document.body.addEventListener('keydown', (event) => {
-            if(event.code == "Escape"){
+            if(event.code == 'Escape'){
                 this.element.classList.add('hidden');
             }
         }, options);

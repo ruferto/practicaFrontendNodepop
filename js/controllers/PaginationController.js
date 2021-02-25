@@ -1,6 +1,6 @@
 import BaseController from './BaseController.js';
 import dataService from '../services/DataService.js';
-import { paginationView } from '../views.js'
+import { paginationView } from '../views.js';
 
 
 export default class PaginationController extends BaseController {

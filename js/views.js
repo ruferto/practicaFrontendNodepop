@@ -35,7 +35,7 @@ export const errorView = (errorMessage) => {
     <div class="message-body">
       ${errorMessage}
     </div>
-  </article>`
+  </article>`;
 };
 
 export const formView = (queries, total, tagList) => {
@@ -81,13 +81,12 @@ export const formView = (queries, total, tagList) => {
     for(let i=1;i<total-1;i++){
       // if((i+1) > page-3 && (i+1) < page+3)
       if((i+1) > page-3 && (i-3) < page-1)
-        htmlForm += `<button class="pag-button${i+1 == page ? ' current' : ''}" value=${i+1}>${i+1}</button>`
+        htmlForm += `<button class="pag-button${i+1 == page ? ' current' : ''}" value=${i+1}>${i+1}</button>`;
       else{
         htmlForm += '...';
-         if((i+1) < page-3){
-           i=page-4;
-         }else
-         if((i-3) > page-2){
+        if((i+1) < page-3){
+          i=page-4;
+        }else if((i-3) > page-2){
           i=total-2;
         }
       }
@@ -107,7 +106,7 @@ export const logInfoView = (user) => {
   Conectado como
   </div>
   ${user}&nbsp;<a href=""><img class="logout-icon" src="./public/images/logout.png" width="15"/></a>`;
-}
+};
 
 export const detailView = (ad, username) => {
 

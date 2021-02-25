@@ -38,12 +38,12 @@ export default class RegisterFormController extends BaseController {
                 const passInput = this.element.elements['login-password'];
                 const passConfirmInput = this.element.elements['login-password2'];
                 if (passInput.value !== passConfirmInput.value) {
-                    passInput.setCustomValidity('Las contraseñas no coinciden'); // marco el input como erróneo
-                    passConfirmInput.setCustomValidity('Las contraseñas no coinciden'); // marco el input como erróneo
-                    passInput.validationMessage = passConfirmInput.validationMessage = 'Las contraseñas no coinciden'
+                    passInput.setCustomValidity('Las contraseñas no coinciden');
+                    passConfirmInput.setCustomValidity('Las contraseñas no coinciden');
+                    passInput.validationMessage = passConfirmInput.validationMessage = 'Las contraseñas no coinciden';
                 } else {
-                    passInput.setCustomValidity(''); // el input está ok
-                    passConfirmInput.setCustomValidity(''); // el input está ok
+                    passInput.setCustomValidity('');
+                    passConfirmInput.setCustomValidity('');
                 }
                 this.checkInputErrors();
             });

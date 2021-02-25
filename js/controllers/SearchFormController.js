@@ -27,7 +27,7 @@ export default class SearchFormController extends BaseController {
 
         const limitInput = document.querySelector('.limit-input');
         limitInput.addEventListener('change', (event) => {
-            window.sessionStorage.setItem("limit",limitInput.value.toString());
+            window.sessionStorage.setItem('limit',limitInput.value.toString());
             searchForm.submit();
         });
         
@@ -40,7 +40,7 @@ export default class SearchFormController extends BaseController {
         pagButtons.forEach( button => {
             button.addEventListener('click', (event) => {
                 pageInput.value=button.value;
-            })
-        })
+            });
+        });
     }
 }

@@ -23,14 +23,8 @@ export default class SubtitleController extends BaseController {
             const logoutIcon = document.querySelector('.logout-icon');
             logoutIcon.addEventListener('click', (event) => {
                 dataService.logout();
-            })
-        }
-        // article.itemId=ad.nombre;
-        // this.element.appendChild(article);
-        // article.addEventListener('click', (event) => {
-        //     console.log(article.itemId);
-        //     window.location.href = `detalle.html?id=${ad.id}`;////////TODO
-        // });        
+            });
+        }       
     }
 
 }

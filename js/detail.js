@@ -1,7 +1,7 @@
 import DetailController from './controllers/DetailController.js';
 import LoaderController from './controllers/LoaderController.js';
 import ErrorController from './controllers/ErrorController.js';
-import SubtitleController from './controllers/SubtitleController.js'
+import SubtitleController from './controllers/SubtitleController.js';
 
 window.addEventListener('DOMContentLoaded', async (event) => {
   const loader = document.querySelector('.lds-ring');
