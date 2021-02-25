@@ -183,6 +183,10 @@ export default {
     },
 
     editAd: async function(ad) {
+        if (ad.foto && (typeof ad.foto !== 'string')) {
+            const imageURL = await this.uploadImage(ad.foto);
+            ad.foto = imageURL;
+        }
         const url = `${BASE_URL}/api/anuncios/${ad.id}`;
         return await this.edit(url, ad);
     }

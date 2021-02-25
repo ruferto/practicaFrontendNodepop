@@ -33,6 +33,18 @@ export default class EditAdFormController extends BaseController {
                 window.history.back();
             });
 
+            const changePhotoButton = this.element.querySelector('.change-photo');
+            changePhotoButton.addEventListener('click', event => {
+                event.preventDefault();
+                const img = this.element.querySelector('.image-selected');
+                img.classList.add('hidden');
+                const imgContainer = this.element.querySelector('.photo-container');
+                imgContainer.classList.add('hidden');
+                const inputChangePhoto = this.element.querySelector('.change-image-input');
+                inputChangePhoto.innerHTML = '<input type="file" style="font-size: 1rem; width: 310px;" class="ad-new-photo" name="foto" id="foto" accept="image/*">';
+                changePhotoButton.parentNode.removeChild(changePhotoButton);               
+            })
+
         }catch(error){
             this.pubSub.publish(this.events.ERROR, error);
         }finally{
@@ -69,9 +81,16 @@ export default class EditAdFormController extends BaseController {
                 foto: this.element.querySelector('.ad-photo').value,
                 tags: adTags
             };
-            // if(this.element.querySelector('.ad-photo').files.length > 0){
-            //     ad.foto = this.element.querySelector('.ad-photo').files[0];
-            // }
+
+            const inputPhotoOriginal = this.element.querySelector('.ad-photo');
+            const inputPhoto = this.element.querySelector('.ad-new-photo');
+            
+            if(inputPhoto && inputPhoto.files.length > 0){
+                ad.foto = inputPhoto.files[0];
+            }else {
+                ad.foto = inputPhotoOriginal.value;
+            }
+
             this.publish(this.events.START_LOADING);
             try {
                 await dataService.editAd(ad);

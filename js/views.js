@@ -143,19 +143,24 @@ export const editFormView = (ad) => {
   <input type="text" value="${ad.nombre}" name="nombre" class="ad-name" id="nombre" placeholder="Artículo" required></div>
   <div><label for="precio">Precio</label><br>
 
-  <input type="number" value="${ad.precio}" step="0.05" min="0" name="precio" id="precio" class="ad-price" placeholder="0,00" required>
+  <input type="number" value="${ad.precio}" step="0.01" min="0" name="precio" id="precio" class="ad-price" placeholder="0,00" required>
   <select class="ad-sale select-css" name="venta" id="venta">
       <option value="true" ${ad.venta ? 'selected' : ''}>Vender</option>
       <option value="false" ${!ad.venta ? 'selected' : ''}>Comprar</option>
   </select></div>
-  <img class="image-selected" src="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" width="300"/>
-  <!-- <input type="file" style="font-size: 1rem; width: 310px;" value="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" class="ad-photo" name="foto" id="foto" accept="image/*"> -->
-  <input type="hidden" value="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" name="ad-foto" id="ad-foto" class="ad-photo">
-  <input type="hidden" value="${ad.id}" name="id" id="id" class="ad-id">
-  <input type="hidden" value="${ad.userId}" name="userId" id="userId" class="ad-userId">
   <div><label for="tags">Tags</label><br>
   <input type="text" value="${ad.tags}" class="ad-tags" name="tags" id="tags" placeholder="Separados por comas" required></div>
-  <!-- <input type="file" class="ad-photo" name="foto" id="foto" accept="image/*">  -->
+  
+  <div class="photo-container">
+  <img class="image-selected" src="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" width="50"/>
+  <button class="change-photo">Cambiar foto</button>
+  </div>
+  
+  <div class="change-image-input"></div>
+  <input type="hidden" value="${ad.foto}" name="ad-foto" id="ad-foto" class="ad-photo">
+  <input type="hidden" value="${ad.id}" name="id" id="id" class="ad-id">
+  <input type="hidden" value="${ad.userId}" name="userId" id="userId" class="ad-userId">
+  
   <br>
   <div><button style="margin-right: 2rem;" class="button-cancel">Cancelar</button><button class="buttonAdd">Editar</button></div>
 </form>`;
