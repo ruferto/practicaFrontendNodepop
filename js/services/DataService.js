@@ -189,5 +189,20 @@ export default {
         }
         const url = `${BASE_URL}/api/anuncios/${ad.id}`;
         return await this.edit(url, ad);
+    },
+
+    getTagsList: async function() {
+        const ads = await this.getAds();
+        const tagList= [];
+        ads.forEach( ad => {
+            ad.tags.forEach( tag => {
+                if(!tagList.includes(tag))
+                    tagList.push(tag);
+            })
+        })
+        tagList.forEach( tag => {
+            console.log(tag)
+        });
+        return tagList;
     }
 };

@@ -10,12 +10,14 @@ export default class SearchFormController extends BaseController {
     }
 
     async render() {
+
+        const tagList = await dataService.getTagsList();
         
         const queries = dataService.getStringQueries();
         queries.limit = window.sessionStorage.getItem('limit') || 10;
         const total = Math.ceil(await dataService.getTotalPages()/queries.limit);
         const searchForm = document.createElement('form');
-        searchForm.innerHTML = formView(queries, total);
+        searchForm.innerHTML = formView(queries, total, tagList);
         this.element.appendChild(searchForm);
 
         const pageInput = document.querySelector('.page-input');
@@ -23,10 +25,8 @@ export default class SearchFormController extends BaseController {
             searchForm.submit();
         });
 
-        //const { userId } = await dataService.getUserDetails();
         const limitInput = document.querySelector('.limit-input');
         limitInput.addEventListener('change', (event) => {
-            //window.sessionStorage.setItem(userId.toString(),"15");
             window.sessionStorage.setItem("limit",limitInput.value.toString());
             searchForm.submit();
         });

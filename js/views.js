@@ -38,8 +38,16 @@ export const errorView = (errorMessage) => {
   </article>`
 };
 
-export const formView = (queries, total) => {
+export const formView = (queries, total, tagList) => {
+
   const { nombre, min, max, venta, tags, page, limit } = queries;
+  let tagsDatalist =`<datalist id="tags-datalist">`;
+  tagList.sort();
+  tagList.forEach( tag => {
+    tagsDatalist += `<option value="${tag}">`;
+  });
+  tagsDatalist += `</datalist>`;
+
   let htmlForm =  `<form class="search-form">
   <img src="/public/images/lupa-icon.png" width="15px" />
   <label for="nombre">Nombre: </label>
@@ -54,7 +62,8 @@ export const formView = (queries, total) => {
     <option value="false" ${venta ? ( venta == 'false' ? 'selected' : '') : ''}>Compra</option>
   </select>
   <label for="tag">Etiqueta: </label>
-  <input id="tags" name="tags" value="${tags ? tags : ''}">
+  <input id="tags" list="tags-datalist" name="tags" value="${tags ? tags : ''}">
+  ${tagsDatalist}
   <input type="hidden" class="page-input" id="page" name="page">
   <label for="limit">Por página: </label>
   <select class="limit-input" id="limit" name="limit" style="width: 50px;">
