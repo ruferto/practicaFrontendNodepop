@@ -185,5 +185,5 @@ export const registerView = () => {
 export const loginView = () => {
   return `<input class="form-login-email" name="login-email" id="login-email" type="email" placeholder="email" required>
   <input class="form-login-password"name="login-password" id="login-password" type="password" placeholder="Contraseña" required>
-  <button type="submit" class="login-button" action="./index.html">Login</button>`;
+  <button type="submit" class="login-button" action="./index.html" disabled >Login</button>`;
 }

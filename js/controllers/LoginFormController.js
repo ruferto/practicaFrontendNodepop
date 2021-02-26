@@ -38,27 +38,25 @@ export default class LoginFormController extends BaseController {
               }
         });
 
-        // this.element.querySelectorAll('input').forEach(input => {
-        //     const button = this.element.querySelector('button');
-        //     input.addEventListener('keyup', event => { 
-        //         // si el input es OK lo marco en verde, si no, en rojo
-        //         if (input.validity.valid) {
-        //             input.classList.add('is-success');
-        //             input.classList.remove('is-danger');
-        //         } else {
-        //             input.classList.remove('is-success');
-        //             input.classList.add('is-danger');
-        //         }
+        this.element.querySelectorAll('input').forEach(input => {
+          const button = this.element.querySelector('button');
+          input.addEventListener('keyup', event => { 
 
-        //         // valido si todo el formulario es OK para habilitar o deshabilitar el botón
-        //         if (this.element.checkValidity()) {
-        //             button.removeAttribute('disabled');
-        //             // button.setAttribute('disabled', false); // esto también valdría
-        //         } else {
-        //             button.setAttribute('disabled', true);
-        //         }
-        //     });
-        // });
+            if (input.validity.valid) {
+              input.classList.add('is-success');
+              input.classList.remove('is-danger');
+            } else {
+              input.classList.remove('is-success');
+              input.classList.add('is-danger');
+            }
+
+            if (this.element.checkValidity()) {
+              button.removeAttribute('disabled');
+            } else {
+              button.setAttribute('disabled', true);
+            }
+          });
+        });
     }
 
 }
