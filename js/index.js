@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
   const errorController = new ErrorController(errorsElement);
 
   let { message } = dataService.getStringQueries();
+  let isMessage = true;
   if( message ){
     switch(message) {
       case 'editOK':
@@ -36,12 +37,19 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         break;
       case 'deleteOK' :
         message = 'Mensaje eliminado correctamente';
-    } 
-    const notificaction = document.querySelector('.notification');
-    notificaction.innerText=message;
-    notificaction.classList.remove('is-hidden');
-    setTimeout( () => {
-      notificaction.classList.add('is-hidden');
-    }, 2000);
+      default:
+        isMessage = false;
+    }
+    if(isMessage){
+      const notificaction = document.querySelector('.notification');
+      notificaction.innerText=message;
+      notificaction.classList.remove('is-hidden');
+      setTimeout( () => {
+        notificaction.classList.add('fade');
+      }, 2000);
+      setTimeout( () => {
+        notificaction.classList.add('is-hidden');
+      }, 3000);
+    }
   }
 });
