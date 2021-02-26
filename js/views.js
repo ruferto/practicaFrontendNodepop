@@ -173,3 +173,15 @@ export const editFormView = (ad) => {
   <div><button style="margin-right: 2rem;" class="button-cancel">Cancelar</button><button class="buttonAdd">Editar</button></div>
 </form>`;
 };
+
+export const registerView = () => {
+  return `<form class="form-login" action="./index.html" method="GET">
+  <input class="form-login-email" name="login-email" id="login-email" type="email" placeholder="email" required>
+  <input class="form-login-password" name="login-password" id="login-password" type="password" pattern="[a-zA-Z0-9]+" placeholder="Contraseña" required>
+  <input class="form-login-password2" name="login-password2" id="login-password2" type="password" pattern="[a-zA-Z0-9]+" placeholder="Confirma la contraseña" required>
+  <span style="font-size: .6rem;padding-left: 1rem;">Solo letras y/o números</span>
+  <button type="submit" class="login-button" action="./index.html">Registro</button>
+  
+</form>
+<a class="login-link" href="/login.html">¿Ya estás registrado? Haz login</a>`;
+}
