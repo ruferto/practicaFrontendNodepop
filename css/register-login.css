@@ -53,6 +53,14 @@ input[type='email'],
       transition: .2 ease;
   }
 
+  .login-button:disabled,
+  .login-button[disabled]{
+    background-color: rgb(230, 227, 227);
+    color: white;
+    border-color: white;
+    cursor: not-allowed;
+  }
+
   .login-link{
       padding-top: 20px;
       font-family: Verdana, Geneva, Tahoma, sans-serif;

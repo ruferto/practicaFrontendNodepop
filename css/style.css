@@ -251,3 +251,12 @@ button{
     text-align: center;
     font-size: 1.5rem;
 }
+
+.notification.is-danger{
+    width: 50vw;
+    position: absolute;
+    top: 80px;
+    left: 25vw;
+    text-align: center;
+    font-size: 1.5rem;
+}

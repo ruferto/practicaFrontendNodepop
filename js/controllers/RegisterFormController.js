@@ -1,5 +1,6 @@
 import BaseController from './BaseController.js';
 import dataService from '../services/DataService.js';
+import { debounce } from '../utils.js';
 
 
 export default class RegisterFormController extends BaseController {
@@ -33,20 +34,43 @@ export default class RegisterFormController extends BaseController {
             }
         });
 
-        this.element.querySelectorAll('input[type="password"]').forEach(input => {
-            input.addEventListener('keyup', event => { 
+        this.element.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keyup', debounce(event => { 
+                const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                const emailInput = document.querySelector('.form-login-email');
                 const passInput = this.element.elements['login-password'];
                 const passConfirmInput = this.element.elements['login-password2'];
-                if (passInput.value !== passConfirmInput.value) {
-                    passInput.setCustomValidity('Las contraseñas no coinciden');
-                    passConfirmInput.setCustomValidity('Las contraseñas no coinciden');
-                    passInput.validationMessage = passConfirmInput.validationMessage = 'Las contraseñas no coinciden';
-                } else {
-                    passInput.setCustomValidity('');
-                    passConfirmInput.setCustomValidity('');
+                const notificaction = document.querySelector('.notification');
+
+                if(!checkEmail.test(emailInput.value)){
+                    emailInput.setCustomValidity('Debe ser un email válido');
+                    notificaction.innerText='Debe ser un email válido';
+                    notificaction.classList.remove('is-hidden');
+                    
+                }else{
+                    emailInput.setCustomValidity('');
+                    if(passInput.value!='' && !passInput.value.match(/^[a-z0-9]+$/i)){
+                        
+                        notificaction.innerText='Solo se permiten caracteres alfanúmericos';
+                        notificaction.classList.remove('is-hidden');
+                        
+                    }else{
+                        if (passInput.value !== passConfirmInput.value) {
+                            passInput.setCustomValidity('Las contraseñas no coinciden');
+                            passConfirmInput.setCustomValidity('Las contraseñas no coinciden');
+                            
+                            notificaction.innerText='Las contraseñas no coinciden';
+                            notificaction.classList.remove('is-hidden');
+                            
+                        } else {
+                            notificaction.classList.add('is-hidden');
+                            passInput.setCustomValidity('');
+                            passConfirmInput.setCustomValidity('');
+                        }
+                    }
                 }
                 this.checkInputErrors();
-            });
+            }, 500));
         });
     }
 
