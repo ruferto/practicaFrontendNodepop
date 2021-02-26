@@ -15,7 +15,6 @@ export default class AdsListController extends BaseController {
 
                 const article = document.createElement('article');
                 article.innerHTML = adView(ad);
-                article.itemId=ad.nombre;
                 this.element.appendChild(article);
                 article.addEventListener('click', (event) => {
                     window.location.href = `detail.html?id=${ad.id}`;////////TODO

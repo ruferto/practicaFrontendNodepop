@@ -1,11 +1,13 @@
 import BaseController from './BaseController.js';
 import dataService from '../services/DataService.js';
+import { loginView } from '../views.js'
 
 
 export default class LoginFormController extends BaseController {
 
     constructor(element) {
         super(element);
+        this.element.innerHTML = loginView();
         this.attachEventListener();
     }
 
