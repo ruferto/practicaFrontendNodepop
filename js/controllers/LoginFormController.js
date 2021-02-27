@@ -23,7 +23,6 @@ export default class LoginFormController extends BaseController {
             try {
                 const data = await dataService.login(user);
                 dataService.saveToken(data.accessToken);
-                // TODO: mejorar el control de los query params
                 let next = '/';
                 const queryParams = window.location.search.replace('?', '');  // ?next=otrapagina -> next=otrapagina
                 const queryParamsParts = queryParams.split('=');

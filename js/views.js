@@ -1,4 +1,3 @@
-//import dataService from "./services/DataService.js";
 
 function getTags (tagsArray){
   let tags = '';

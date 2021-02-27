@@ -4,7 +4,6 @@ import ErrorController from './controllers/ErrorController.js';
 import SearchFormController from './controllers/SearchFormController.js';
 import SubtitleController from './controllers/SubtitleController.js';
 import dataService from './services/DataService.js';
-//import PaginationController from './controllers/PaginationController.js';
 
 window.addEventListener('DOMContentLoaded', async (event) => {
   const loader = document.querySelector('.lds-ring');
@@ -37,6 +36,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         break;
       case 'deleteOK' :
         message = 'Mensaje eliminado correctamente';
+      break;
       default:
         isMessage = false;
     }

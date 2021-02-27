@@ -25,20 +25,9 @@ export default class NewAdFormController extends BaseController {
     }
 
     attachEventListeners() {
-        // // a medida que el usuario escribe, comprobamos si el formulario es válido para habiltiar o no el botón de enviar
-        // const textarea = this.element.querySelector('textarea');
-        // textarea.addEventListener('keyup', () => {
-        //     const button = this.element.querySelector('button');
-        //     if (this.element.checkValidity()) {
-        //         button.removeAttribute('disabled');
-        //     } else {
-        //         button.setAttribute('disabled', true);
-        //     }
-        // });
-
-        // controlamos cuando se envía el formulario
+       
         this.element.addEventListener('submit', async event => {
-            event.preventDefault();  // cancelamos el envío del formulario (comportamiento por defecto)
+            event.preventDefault();
             let adTags = this.element.querySelector('.ad-tags').value;
             adTags=adTags.split(',');
             

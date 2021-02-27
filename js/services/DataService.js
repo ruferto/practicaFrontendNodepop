@@ -1,8 +1,6 @@
 const BASE_URL=`http://127.0.0.1:8000`;
 const TOKEN_KEY = 'token';
 
-//const url = 'https://raw.githubusercontent.com/usuario616/anuncios/main/anuncios.json';
-
 export default {
 
     getStringQueries: () => {
@@ -100,12 +98,10 @@ export default {
             config.headers['Authorization'] = `Bearer ${token}`;
         }
         const response = await fetch(url, config);
-        const data = await response.json();  // respuesta del servidor sea OK o sea ERROR.
+        const data = await response.json();
         if (response.ok) {
             return data;
         } else {            
-            // TODO: mejorar gestión de errores
-            // TODO: si la respuesta es un 401 no autorizado, debemos borrar el token (si es que lo tenemos);
             throw new Error(data.message || JSON.stringify(data));
         }
     },
@@ -134,7 +130,7 @@ export default {
 
     isUserLogged: async function() {
         const token = await this.getToken();    
-        return token !== null;  // esto devuelve true o false
+        return token !== null;
     },
 
     saveAd: async function(ad) {
