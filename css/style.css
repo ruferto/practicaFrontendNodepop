@@ -243,6 +243,10 @@ button{
     padding-bottom:3.6rem;
 }
 
+.message.main-none{
+    background-color: rgb(243, 242, 242);;
+}
+
 .notification.is-success{
     width: 50vw;
     position: absolute;

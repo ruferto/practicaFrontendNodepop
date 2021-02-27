@@ -34,16 +34,18 @@ export default class EditAdFormController extends BaseController {
             });
 
             const changePhotoButton = this.element.querySelector('.change-photo');
-            changePhotoButton.addEventListener('click', event => {
-                event.preventDefault();
-                const img = this.element.querySelector('.image-selected');
-                img.classList.add('hidden');
-                const imgContainer = this.element.querySelector('.photo-container');
-                imgContainer.classList.add('hidden');
-                const inputChangePhoto = this.element.querySelector('.change-image-input');
-                inputChangePhoto.innerHTML = '<input type="file" style="font-size: 1rem; width: 310px;" class="ad-new-photo" name="foto" id="foto" accept="image/*">';
-                changePhotoButton.parentNode.removeChild(changePhotoButton);               
-            });
+            if(changePhotoButton){
+                changePhotoButton.addEventListener('click', event => {
+                    event.preventDefault();
+                    const img = this.element.querySelector('.image-selected');
+                    img.classList.add('hidden');
+                    const imgContainer = this.element.querySelector('.photo-container');
+                    imgContainer.classList.add('hidden');
+                    const inputChangePhoto = this.element.querySelector('.change-image-input');
+                    inputChangePhoto.innerHTML = '<input type="file" style="font-size: 1rem; width: 310px;" class="ad-new-photo" name="foto" id="foto" accept="image/*">';
+                    changePhotoButton.parentNode.removeChild(changePhotoButton);               
+                });
+            }
 
         }catch(error){
             this.pubSub.publish(this.events.ERROR, error);

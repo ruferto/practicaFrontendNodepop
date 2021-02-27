@@ -144,7 +144,7 @@ export const paginationView = (queries) => {
 };
 
 export const editFormView = (ad) => {
-  return `<form class="form-edit" action="" method="PUT">
+  let htmlEditForm=`<form class="form-edit" action="" method="PUT">
 
   <div><label for="nombre"><br>Nombre</label><br>
   <input type="text" value="${ad.nombre}" name="nombre" class="ad-name" id="nombre" placeholder="Artículo" required></div>
@@ -158,20 +158,28 @@ export const editFormView = (ad) => {
   <div><label for="tags">Tags</label><br>
   <input type="text" value="${ad.tags}" class="ad-tags" name="tags" id="tags" placeholder="Separados por comas" required></div>
   
-  <div class="photo-container">
-  <img class="image-selected" src="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" width="50"/>
-  <button class="change-photo">Cambiar foto</button>
-  </div>
-  
-  <div class="change-image-input"></div>
-  <input type="hidden" value="${ad.foto}" name="ad-foto" id="ad-foto" class="ad-photo">
+  `;
+
+  if(ad.foto){
+    htmlEditForm += `<div class="photo-container">
+    <img class="image-selected" src="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" width="50"/>
+    <button class="change-photo">Cambiar foto</button>
+    </div>
+    <div class="change-image-input"></div>`;
+  }else{
+  htmlEditForm += `
+  <div class="change-image-input"><input type="file" style="font-size: 1rem; width: 310px;" class="ad-new-photo" name="foto" id="foto" accept="image/*"></div>`;
+  }
+  htmlEditForm += `<input type="hidden" value="${ad.foto}" name="ad-foto" id="ad-foto" class="ad-photo">
   <input type="hidden" value="${ad.id}" name="id" id="id" class="ad-id">
   <input type="hidden" value="${ad.userId}" name="userId" id="userId" class="ad-userId">
   
   <br>
   <div><button style="margin-right: 2rem;" class="button-cancel">Cancelar</button><button class="buttonAdd">Editar</button></div>
 </form>`;
-};
+
+return htmlEditForm;
+}
 
 export const registerView = () => {
   return `<input class="form-login-email" name="login-email" id="login-email" type="email" placeholder="email" required>
