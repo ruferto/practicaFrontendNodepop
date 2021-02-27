@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         notificaction.classList.add('fade');
       }, 2000);
       setTimeout( () => {
-        notificaction.classList.add('is-hidden');
+        notificaction.remove();
       }, 3000);
     }
   }

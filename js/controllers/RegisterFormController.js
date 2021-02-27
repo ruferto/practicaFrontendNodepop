@@ -1,6 +1,5 @@
 import BaseController from './BaseController.js';
 import dataService from '../services/DataService.js';
-import { registerView } from '../views.js';
 import { debounce } from '../utils.js';
 
 
@@ -8,7 +7,6 @@ export default class RegisterFormController extends BaseController {
 
     constructor(element) {
         super(element);
-        this.element.innerHTML=registerView();
         this.attachEventListener();
     }
 

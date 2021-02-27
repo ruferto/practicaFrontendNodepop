@@ -36,6 +36,7 @@ html{
     color: red;
     background-color: white;
     border-color: rgb(233, 73, 73,.9);
+    margin-left: 3rem;
 }
 .delete-button:hover {
     background-color: red;;
@@ -54,4 +55,20 @@ html{
 .back-icon{
     cursor: pointer;
     margin-right:4rem;
+}
+
+.price-label{
+    font-size: 1.7rem;
+    text-align: left;
+    width:100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.date-update{
+    font-size: .8rem;
+    padding-top: .5rem;
+}
+
+.author-label{
+    padding-top: 1rem;
 }

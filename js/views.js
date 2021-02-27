@@ -115,13 +115,12 @@ export const detailView = (ad, username) => {
   <div class="detail-content">
   ${ad.venta ? 'Se vende' : 'Se compra'}<br>
   <span class="name-label"><b>${ad.nombre}</b></span><br>
-  <span class="price">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</span><br>
+  <div class="price-label">${ ad.precio % 1 != 0 ? Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(ad.precio) : Intl.NumberFormat('de-DE').format(ad.precio)+' €' }</div><br>
   Etiquetas: ${getTags(ad.tags)}<br>
-  Subido por 
-  ${ username }
+  <div class="author-label">Subido por ${ username }</div>
+  <div class="date-update">Actualizado el ${new Intl.DateTimeFormat('es-ES').format(new Date(ad.updatedAt))}</div>
   <div class="button-container">
-  <div><button class="edit-button hidden">Editar</button></div>
-  <div><button class="delete-button hidden">Eliminar</button></div>
+  <div><button class="edit-button hidden">Editar</button><button class="delete-button hidden">Eliminar</button></div>
   </div>
   </div>
   <div class="detail-photo" style="position: relative;top: 0;">
@@ -178,19 +177,5 @@ export const editFormView = (ad) => {
   <div><button style="margin-right: 2rem;" class="button-cancel">Cancelar</button><button class="buttonAdd">Editar</button></div>
 </form>`;
 
-return htmlEditForm;
-}
-
-export const registerView = () => {
-  return `<input class="form-login-email" name="login-email" id="login-email" type="email" placeholder="email" required>
-  <input class="form-login-password" name="login-password" id="login-password" type="password" placeholder="Contraseña" required>
-  <input class="form-login-password2" name="login-password2" id="login-password2" type="password" placeholder="Confirma la contraseña" required>
-  <span style="font-size: .6rem;padding-left: 1rem;">Solo letras y/o números</span>
-  <button type="submit" class="login-button" action="./index.html" disabled>Registro</button>`;
-}
-
-export const loginView = () => {
-  return `<input class="form-login-email" name="login-email" id="login-email" type="email" placeholder="email" required>
-  <input class="form-login-password"name="login-password" id="login-password" type="password" placeholder="Contraseña" required>
-  <button type="submit" class="login-button" action="./index.html" disabled >Login</button>`;
+  return htmlEditForm;
 }
