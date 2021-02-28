@@ -17,6 +17,9 @@ export default class EditAdFormController extends BaseController {
 
             const { userId } = await dataService.getUserDetails();
             const {id} = dataService.getStringQueries();
+
+            if(!id) throw new Error(`Falta la id<br><a href='/'>Volver</a>`);
+
             const ad = await dataService.getAd(id);
             const isAuthor = (userId == ad.userId);
 
@@ -57,7 +60,7 @@ export default class EditAdFormController extends BaseController {
     async checkIfUserIsLogged() {
         const userIsLogged = await dataService.isUserLogged();
         if (!userIsLogged) {
-            window.location.href = '/login.html?next=/edit-ad.html';
+            window.location.href = '/login.html';
         } else {
             this.publish(this.events.FINISH_LOADING);
         }
