@@ -90,7 +90,7 @@ export default class EditAdFormController extends BaseController {
             if(inputPhoto && inputPhoto.files.length > 0){
                 ad.foto = inputPhoto.files[0];
             }else {
-                ad.foto = inputPhotoOriginal.value;
+                ad.foto = inputPhotoOriginal.value == 'null' ? null : inputPhotoOriginal.value;
             }
 
             this.publish(this.events.START_LOADING);

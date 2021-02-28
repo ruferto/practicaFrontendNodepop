@@ -123,7 +123,7 @@ export const detailView = (ad, username) => {
   <div><button class="edit-button hidden">Editar</button><button class="delete-button hidden">Eliminar</button></div>
   </div>
   </div>
-  <div class="detail-photo" style="position: relative;top: 0;">
+  <div class="detail-photo">
   <img src="${ad.foto || 'http://127.0.0.1:8000//none.png'}">
   </div>
   
