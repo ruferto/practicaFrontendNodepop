@@ -54,8 +54,10 @@ export default class DetailController extends BaseController {
             }
             
         }catch(error){
-            const article = document.querySelector('.ad-detail-container');
-            article.innerHTML = `<div class="message">Anuncio no encontrado<br><br><a href="/">Volver</a></div>`;
+            if(error.toString() == 'Error: HTTP Error: 404'){
+                const article = document.querySelector('.ad-detail-container');
+                article.innerHTML = `<div class="message">Anuncio no encontrado<br><br><a href="/">Volver</a></div>`;
+            }
             this.pubSub.publish(this.events.ERROR, error);
         }finally{
             this.pubSub.publish(this.events.FINISH_LOADING, {});
