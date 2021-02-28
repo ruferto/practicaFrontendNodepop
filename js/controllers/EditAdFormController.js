@@ -18,7 +18,13 @@ export default class EditAdFormController extends BaseController {
             const { userId } = await dataService.getUserDetails();
             const {id} = dataService.getStringQueries();
 
-            if(!id) throw new Error(`Falta la id<br><a href='/'>Volver</a>`);
+            if(!id){
+                const innerHTMLEdit = '<div class="message"><br>Falta la id<br><br><a href="/">Volver</a></div>';
+                const article = document.createElement('article');
+                article.innerHTML = innerHTMLEdit;
+                this.element.appendChild(article);
+                throw new Error(`Falta la id`);
+            }
 
             const ad = await dataService.getAd(id);
             const isAuthor = (userId == ad.userId);
