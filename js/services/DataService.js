@@ -15,6 +15,7 @@ export default {
         const limit = params.get("limit") || 10;
         const sort = params.get("sort");
         const order = params.get("order");
+        const next = params.get("next");
         const message = params.get("mensaje");
         return {
             id: adId,
@@ -27,6 +28,7 @@ export default {
             limit,
             sort,
             order,
+            next,
             message
         };
     },

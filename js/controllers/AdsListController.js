@@ -31,7 +31,6 @@ export default class AdsListController extends BaseController {
             this.render(ads);
 
         } catch (error) {
-            console.error(error);
             this.pubSub.publish(this.events.ERROR, error);
         } finally {
             this.pubSub.publish(this.events.FINISH_LOADING, {});
