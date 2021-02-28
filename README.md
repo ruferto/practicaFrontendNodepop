@@ -11,4 +11,6 @@ Al estar conectado, aparecerá un botón en la esquina superior izquierda de la 
 Haciendo clic sobre un anuncio en la página principal, llevará hasta la página de detalle. Desde ahí se puede tanto editar, como eliminar el anuncio.
 
 ## Búsqueda
-Para buscar anuncios puede usarse el pequeño menú en la parte superior bajo el título. Pueden buscarse tanto por nombre, precio (con rangos), tipo de venta y etiqueta. Para buscar un precio exacto, máximo y mínimo seran iguales.
+Para buscar anuncios puede usarse el pequeño menú en la parte superior bajo el título. Pueden buscarse tanto por nombre, precio (con rangos), tipo de venta y etiqueta.
+Para buscar un precio exacto, máximo y mínimo seran iguales.
+Para buscar por tags, al teclear en su campo aparecen alternativas con los tags existentes.
