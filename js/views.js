@@ -9,7 +9,7 @@ function getTags (tagsArray){
 
 export const adView = (ad) => {
   
-  const adImage = `<img class="img-ad" src="${ ad.foto || 'http://127.0.0.1:8000//none.png'}" width="180" alt=${ad.nombre} /><br>`;
+  const adImage = `<img class="img-ad" src="${ ad.foto || '/public/images/none.png'}" width="180" alt=${ad.nombre} /><br>`;
   return `
   <div class="ad-container">
   ${ (ad.venta) ? 'Se vende' : 'Se compra' }:
@@ -124,7 +124,7 @@ export const detailView = (ad, username) => {
   </div>
   </div>
   <div class="detail-photo">
-  <img src="${ad.foto || 'http://127.0.0.1:8000//none.png'}">
+  <img src="${ad.foto || '/public/images/none.png'}">
   </div>
   
   </div>`;
@@ -161,7 +161,7 @@ export const editFormView = (ad) => {
 
   if(ad.foto){
     htmlEditForm += `<div class="photo-container">
-    <img class="image-selected" src="${ad.foto ? ad.foto : 'http://127.0.0.1:8000//none.png'}" width="50"/>
+    <img class="image-selected" src="${ad.foto ? ad.foto : '/public/images/none.png'}" width="50"/>
     <button class="change-photo">Cambiar foto</button>
     </div>
     <div class="change-image-input"></div>`;

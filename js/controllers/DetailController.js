@@ -16,6 +16,12 @@ export default class DetailController extends BaseController {
             const ad = await dataService.getAd(adId);
 
             const userActive = await dataService.getUserDetails();
+
+            if(!userActive){
+                const loginLink = document.querySelector('.login-link');
+                loginLink.setAttribute('href', `/login.html?next=detail.html?id=${adId}`);
+            }
+            
             const isAuthor = (userActive && ad.userId == userActive.userId );
             const username = isAuthor ? 'mí' : await dataService.getUsername(ad.userId);
 
